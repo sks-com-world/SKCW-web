@@ -2,180 +2,110 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<title>SKCW Web | Lear Computer Technology with Suryakiran</title>
+<title>SKCW Web | Learn Computer Technology</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" href="favicon.ico?v=999">
-
-<meta name="description" content="Learn computer technology in a professional and simple way with SKCW Web.">
+<!-- SEO -->
+<meta name="description" content="Learn computer technology with SKCW Web by Suryakiran.">
 <meta name="robots" content="index, follow">
 
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico">
+
+<!-- Styles -->
 <style>
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* BODY */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    color: #fff;
-    background: url("banner.jpeg") center/cover fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("banner.jpeg") no-repeat center center/cover fixed;
+    color: white;
 }
 
-/* DARK OVERLAY */
+/* Overlay */
 body::before {
     content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,20,60,0.9));
+    background: rgba(0,0,30,0.85);
     z-index: -1;
 }
 
-/* NAVBAR */
+/* Navbar */
 nav {
-    position: sticky;
-    top: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(12px);
+    text-align: center;
     padding: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
+    background: #000;
 }
 
 nav a {
     color: #00eaff;
+    margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* HERO */
-.hero {
+/* Hero */
+header {
     text-align: center;
-    padding: 70px 20px 40px;
+    padding: 40px 20px;
 }
 
 .logo {
     width: 120px;
     border-radius: 50%;
-    border: 4px solid #00eaff;
-    box-shadow: 0 0 20px #00eaff;
-}
-
-.hero h1 {
-    font-size: 38px;
-    color: #00eaff;
-}
-
-.hero p {
-    color: #ccc;
-    margin-top: 10px;
-}
-
-/* BUTTON */
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 30px;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #00eaff, #0077ff);
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #00eaff;
-}
-
-/* SECTION */
-section {
-    margin: 30px auto;
-    padding: 30px;
-    width: 90%;
-    max-width: 1000px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    transition: 0.3s;
-}
-
-section:hover {
-    transform: translateY(-5px);
-}
-
-h2 {
-    text-align: center;
-    color: #00eaff;
-    margin-bottom: 15px;
-}
-
-/* CHATBOT SPECIAL SECTION */
-.chatbot-section {
-    border: 2px solid #00eaff;
-    text-align: center;
-}
-
-.chatbot-section p {
-    color: #ccc;
-}
-
-/* ABOUT */
-.about img {
-    width: 160px;
-    display: block;
-    margin: auto;
-    border-radius: 12px;
     border: 3px solid #00eaff;
 }
 
-/* AUDIO */
-audio {
-    width: 100%;
-    margin-top: 15px;
+h1 {
+    color: #00eaff;
 }
 
-/* SOCIAL */
-.social {
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(45deg,#00eaff,#0077ff);
+    color: black;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Sections */
+section {
+    margin: 25px;
+    padding: 25px;
+    background: rgba(0,0,50,0.7);
+    border-radius: 15px;
     text-align: center;
 }
 
+/* About Image */
+.about img {
+    width: 180px;
+    border-radius: 10px;
+    border: 3px solid #00eaff;
+}
+
+/* Social */
 .social a {
     display: inline-block;
     margin: 8px;
-    padding: 10px 18px;
-    border-radius: 25px;
+    padding: 10px 15px;
     border: 2px solid #00eaff;
+    border-radius: 20px;
     color: #00eaff;
     text-decoration: none;
 }
 
-.social a:hover {
-    background: #00eaff;
-    color: black;
-}
-
-/* FOOTER */
+/* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     color: #aaa;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-    .hero h1 {
-        font-size: 26px;
-    }
 }
 
 </style>
@@ -185,105 +115,97 @@ footer {
 
 <!-- NAVBAR -->
 <nav>
-    <a href="#">Home</a>
-    <a href="Posts.html">Posts</a>
-    <a href="chatbot.html">AI Assistant</a>
+<a href="index.html">Home</a>
+<a href="Posts.html">Posts</a>
+<a href="chatbot.html">AI Assistant</a>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-    <img src="logo.jpeg" class="logo">
-    <h1>SKCW Web</h1>
-    <p>Learn Computer Technology Like a Professional 🚀</p>
-    <a class="btn" href="https://youtube.com/@sks_com_worldofficial" target="_blank">
-        Subscribe Now
-    </a>
-</div>
+<header>
+<img src="logo.jpeg" alt="SKCW Web Logo" class="logo">
+<h1>SKCW Web</h1>
+<p>Learn Computer Technology Like a Professional 🚀</p>
 
-<!-- 🔥 CHATBOT FEATURE (TOP SECTION) -->
-<section class="chatbot-section">
-    <h2>🤖 AI Assistant</h2>
-    <p>
-        Have a question? Use our smart AI assistant to get help with 
-        computer technology, coding, and learning resources instantly.
-    </p>
+<a class="btn" href="https://youtube.com/@sks_com_worldofficial" target="_blank">
+Subscribe Now
+</a>
+</header>
 
-    <a class="btn" href="chatbot.html">
-        Open AI Assistant
-    </a>
+<!-- AI SECTION -->
+<section>
+<h2>AI Assistant</h2>
+<p>Use our smart AI assistant for computer technology help.</p>
+<a class="btn" href="chatbot.html">Open AI Assistant</a>
 </section>
 
 <!-- ABOUT -->
 <section class="about">
-    <h2>About Me</h2>
-    <img src="me.jpeg">
-    <p style="text-align:center;"><strong>Suryakiran</strong></p>
-    <p style="text-align:center;">
-        I create content to make computer technology simple and powerful.
-    </p>
+<h2>About Me</h2>
+
+<img src="me.jpeg" alt="Photo of Suryakiran">
+
+<p><strong>Suryakiran</strong></p>
+<p>I create content to make computer technology simple and powerful.</p>
+
 </section>
 
 <!-- WELCOME -->
 <section>
-    <h2>Welcome</h2>
-    <p>
-        Welcome to SKCW Web — your ultimate destination to learn computer technology.
-    </p>
+<h2>Welcome</h2>
+<p>Welcome to SKCW Web — your ultimate destination to learn computer technology.</p>
 
-    <audio controls>
-        <source src="intro.mpeg" type="audio/mpeg">
-    </audio>
+<audio controls>
+<source src="intro.mpeg" type="audio/mpeg">
+Your browser does not support audio.
+</audio>
+
 </section>
 
 <!-- POSTS -->
 <section>
-    <h2>Explore Content</h2>
-    <p>Discover posts and updates.</p>
-    <a class="btn" href="Posts.html">View Posts</a>
+<h2>Explore Content</h2>
+<p>Discover posts and updates.</p>
+
+<a class="btn" href="Posts.html">View Posts</a>
 </section>
 
-<!-- FEEDBACK SECTION -->
+<!-- FEEDBACK -->
 <section>
-    <h2>Feedback & Suggestions</h2>
+<h2>Feedback & Suggestions</h2>
+<p>Your feedback helps improve this website.</p>
 
-    <p style="text-align:center;">
-        Your feedback helps us improve and deliver better content.
-        If you have any suggestions, ideas, or opinions about this website,
-        feel free to share them with us.
-    </p>
-
-    <p style="text-align:center;">
-        We value every response and continuously work to enhance your experience.
-    </p>
-
-    <div style="text-align:center;">
-        <a class="btn" href="https://forms.gle/v9jZCAqiNWzUXzZWA" target="_blank">
-            Give Feedback
-        </a>
-    </div>
+<a class="btn" href="https://forms.gle/v9jZCAqiNWzUXzZWA" target="_blank">
+Give Feedback
+</a>
 </section>
-    
+
 <!-- CONTACT -->
 <section>
-    <h2>Get In Touch</h2>
-    <p>For collaboration or questions.</p>
-    <a class="btn" href="mailto:sks.com.world@gmail.com">Contact Me</a>
+<h2>Get In Touch</h2>
+<p>For collaboration or questions.</p>
+
+<a class="btn" href="mailto:sks.com.world@gmail.com">
+Contact Me
+</a>
 </section>
 
 <!-- SOCIAL -->
 <section>
-    <h2>Follow Me</h2>
-    <div class="social">
-        <a href="https://www.instagram.com/sks_com_worldofficial">Instagram</a>
-        <a href="https://discord.gg/rnu26QR5">Discord</a>
-        <a href="https://x.com/SKs_Com_World">Twitter</a>
-        <a href="https://whatsapp.com/channel/0029VbBjAlv4yltWkOW5XY3i">WhatsApp</a>
-        <a href="https://www.roblox.com/users/9968367113/profile">Roblox</a>
-    </div>
+<h2>Follow Me</h2>
+
+<div class="social">
+<a href="https://www.instagram.com/sks_com_worldofficial" target="_blank">Instagram</a>
+<a href="https://discord.gg/rnu26QR5" target="_blank">Discord</a>
+<a href="https://x.com/SKs_Com_World" target="_blank">Twitter</a>
+<a href="https://whatsapp.com/channel/0029VbBjAlv4yltWkOW5XY3i" target="_blank">WhatsApp</a>
+<a href="https://www.roblox.com/users/9968367113/profile" target="_blank">Roblox</a>
+</div>
+
 </section>
 
+<!-- FOOTER -->
 <footer>
-© 2026 SKCW Web | AI Powered Learning 🚀
+© 2026 SKCW Web | All Rights Reserved
 </footer>
 
 </body>
