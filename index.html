@@ -5,25 +5,27 @@
 
 <title>SKCW Web | Learn Computer Technology with Suryakiran</title>
 
-<!-- MOBILE FIX -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- FAVICON -->
-<link rel="icon" href="favicon.ico?v=50">
+<link rel="icon" href="favicon.ico?v=500">
 
-<!-- SEO -->
-<meta name="description" content="SKCW web is a computer technology website by Suryakiran.">
+<meta name="description" content="Master computer technology with SKCW Web. Learn faster, smarter, better.">
 <meta name="robots" content="index, follow">
 
 <style>
 
-/* BACKGROUND */
-body {
+/* RESET */
+* {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
-    background: url("banner.png") no-repeat center center fixed;
-    background-size: cover;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    background: url("banner.jpeg") center/cover fixed;
 }
 
 /* DARK OVERLAY */
@@ -32,88 +34,117 @@ body::before {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(10,15,31,0.85);
+    background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,20,60,0.9));
     z-index: -1;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 20px;
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
 }
 
-.banner {
+nav a {
+    color: #00eaff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #00eaff;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
     width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
 }
 
 .logo {
-    width: 120px;
-    height: 120px;
+    width: 130px;
     border-radius: 50%;
     border: 4px solid #00eaff;
+    box-shadow: 0 0 20px #00eaff;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-top: 15px;
+    color: #00eaff;
+}
+
+.hero p {
+    color: #ccc;
     margin-top: 10px;
-}
-
-header h1 {
-    color: #00eaff;
-}
-
-/* SECTIONS */
-section {
-    margin: 20px;
-    padding: 20px;
-    background: rgba(21,28,61,0.9);
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,234,255,0.3);
-}
-
-h2 {
-    text-align: center;
-    color: #00eaff;
-}
-
-/* ABOUT IMAGE */
-.about img {
-    width: 180px;
-    border-radius: 12px;
-    border: 3px solid #00eaff;
-    display: block;
-    margin: 10px auto;
+    font-size: 18px;
 }
 
 /* BUTTON */
 .btn {
     display: inline-block;
-    margin-top: 15px;
-    padding: 12px 25px;
+    margin-top: 20px;
+    padding: 14px 35px;
+    border-radius: 50px;
     background: linear-gradient(45deg, #00eaff, #0077ff);
-    color: #000;
-    border-radius: 25px;
+    color: black;
     font-weight: bold;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .btn:hover {
-    box-shadow: 0 0 15px #00eaff;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00eaff;
 }
 
-/* SOCIAL */
-.social a {
-    display: inline-block;
-    margin: 6px;
-    padding: 10px 15px;
-    border: 2px solid #00eaff;
+/* SECTION */
+section {
+    margin: 30px auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 1000px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
     border-radius: 20px;
-    color: #00eaff;
-    text-decoration: none;
+    transition: 0.3s;
 }
 
-.social a:hover {
-    background: #00eaff;
-    color: #000;
+section:hover {
+    transform: translateY(-5px);
+}
+
+/* HEADINGS */
+h2 {
+    text-align: center;
+    color: #00eaff;
+    margin-bottom: 15px;
+}
+
+/* ABOUT */
+.about img {
+    width: 170px;
+    display: block;
+    margin: auto;
+    border-radius: 12px;
+    border: 3px solid #00eaff;
 }
 
 /* AUDIO */
@@ -122,23 +153,39 @@ audio {
     margin-top: 15px;
 }
 
-/* MOBILE FIX */
-@media (max-width: 600px) {
-    section {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    .logo {
-        width: 90px;
-        height: 90px;
-    }
+/* SOCIAL */
+.social {
+    text-align: center;
 }
 
+.social a {
+    display: inline-block;
+    margin: 8px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: 2px solid #00eaff;
+    color: #00eaff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    background: #00eaff;
+    color: black;
+}
+
+/* FOOTER */
 footer {
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     color: #aaa;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    .hero h1 {
+        font-size: 26px;
+    }
 }
 
 </style>
@@ -146,79 +193,74 @@ footer {
 
 <body>
 
-<header>
-    <img src="banner.jpeg" alt="Banner" class="banner">
-    <img src="logo.jpeg" alt="Logo" class="logo">
+<!-- NAVBAR -->
+<nav>
+    <a href="#">Home</a>
+    <a href="Posts.html">Posts</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="logo.jpeg" class="logo">
     <h1>SKCW Web</h1>
-</header>
-
-<section class="about">
-    <h2>About Me</h2>
-
-    <img src="me.jpeg" alt="My Photo">
-
-    <p><strong>Name:</strong> Suryakiran</p>
-    <p><strong>Date of Birth:</strong> 10 May 2012</p>
-    <p><strong>Email:</strong> sks.com.world@gmail.com</p>
-</section>
-
-<section>
-    <h2>Welcome</h2>
-    <p>
-        Welcome to my web page. Hello friends, my name is Suryakiran.
-        Let’s explore the world of Computer Technology.
-        My aim is to explain the basics of computers that people don’t know
-        or only a few people know. I want to explain all things.
-        If you want further information, play this audio.
-        If you want more information, email me or DM me on Instagram or Twitter.
-    </p>
-
-    <!-- YOUR AUDIO (IMPORTANT) -->
-    <audio controls>
-        <source src="intro.mpeg" type="audio/mpeg">
-        Your browser does not support the audio file.
-    </audio>
-</section>
-
-<section>
-    <h2>YouTube Channel</h2>
-    <p>If you want to see my informative videos, please subscribe.</p>
+    <p>Learn Computer Technology Like a Professional 🚀</p>
     <a class="btn" href="https://youtube.com/@sks_com_worldofficial" target="_blank">
         Subscribe Now
     </a>
-</section>
+</div>
 
-<section>
-    <h2>Feedback</h2>
-    <a class="btn" href="https://forms.gle/v9jZCAqiNWzUXzZWA" target="_blank">
-        Feedback Form
-    </a>
-</section>
-
-<section>
-    <h2>Daily Posts & Updates</h2>
-    <p>
-        Check my posts on YouTube, WhatsApp channel, and Twitter.
-        Or view them on my website.
+<!-- ABOUT -->
+<section class="about">
+    <h2>About Me</h2>
+    <img src="me.jpeg">
+    <p style="text-align:center;"><strong>Suryakiran</strong></p>
+    <p style="text-align:center;">
+        I create high-quality content to make computer technology simple and powerful.
     </p>
-    <a class="btn" href="Posts.html">
-        Post Section
-    </a>
 </section>
 
+<!-- WELCOME -->
+<section>
+    <h2>Welcome</h2>
+    <p>
+        Welcome to SKCW Web — your ultimate destination to learn computer technology.
+        From basics to advanced, everything is explained simply.
+    </p>
+
+    <audio controls>
+        <source src="intro.mpeg" type="audio/mpeg">
+    </audio>
+</section>
+
+<!-- CONTENT -->
+<section>
+    <h2>Explore Content</h2>
+    <p>Discover posts, updates, and knowledge.</p>
+    <a class="btn" href="Posts.html">View Posts</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Get In Touch</h2>
+    <p>For collaboration, questions, or support.</p>
+    <a class="btn" href="mailto:sks.com.world@gmail.com">Contact Me</a>
+</section>
+
+<!-- SOCIAL -->
 <section>
     <h2>Follow Me</h2>
     <div class="social">
-        <a href="https://www.instagram.com/sks_com_worldofficial" target="_blank">Instagram</a>
-        <a href="https://www.roblox.com/users/9968367113/profile" target="_blank">Roblox</a>
-        <a href="https://discord.gg/rnu26QR5" target="_blank">Discord</a>
-        <a href="https://x.com/SKs_Com_World" target="_blank">Twitter (X)</a>
-        <a href="https://whatsapp.com/channel/0029VbBjAlv4yltWkOW5XY3i" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/sks_com_worldofficial">Instagram</a>
+        <a href="https://discord.gg/rnu26QR5">Discord</a>
+        <a href="https://x.com/SKs_Com_World">Twitter</a>
+        <a href="https://whatsapp.com/channel/0029VbBjAlv4yltWkOW5XY3i">WhatsApp</a>
+        <a href="https://www.roblox.com/users/9968367113/profile">Roblox</a>
     </div>
 </section>
 
 <footer>
-    © 2026 SKCW Web | Created by Suryakiran
+© 2026 SKCW Web | Professional Tech Platform 🚀
 </footer>
 
 </body>
