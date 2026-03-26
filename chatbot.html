@@ -13,7 +13,7 @@ body {
     color: white;
 }
 
-/* DARK OVERLAY */
+/* Overlay */
 body::before {
     content: "";
     position: fixed;
@@ -23,26 +23,27 @@ body::before {
     z-index: -1;
 }
 
-/* HEADER */
+/* Header */
 header {
     text-align: center;
     padding: 15px;
     color: #00eaff;
 }
 
-/* CHAT AREA */
-.chat-container {
-    max-width: 600px;
+/* Chat */
+.chat {
+    max-width: 650px;
     margin: auto;
     padding: 15px;
 }
 
-/* MESSAGES */
-.message {
-    padding: 10px 15px;
+/* Messages */
+.msg {
+    padding: 12px 16px;
     border-radius: 15px;
     margin: 10px 0;
     max-width: 80%;
+    line-height: 1.5;
 }
 
 .user {
@@ -54,13 +55,13 @@ header {
     background: rgba(255,255,255,0.1);
 }
 
-/* INPUT */
-.input-area {
+/* Input */
+.input-box {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #111;
     display: flex;
+    background: #111;
     padding: 10px;
 }
 
@@ -73,13 +74,13 @@ input {
 
 button {
     margin-left: 10px;
-    padding: 10px;
+    padding: 10px 15px;
     border: none;
     border-radius: 10px;
     background: #00eaff;
     font-weight: bold;
+    cursor: pointer;
 }
-
 </style>
 </head>
 
@@ -87,12 +88,12 @@ button {
 
 <header>
 <h2>🤖 SKCW AI Assistant</h2>
-<p>Smart Tech Helper</p>
+<p>Smart Technology Guide</p>
 </header>
 
-<div class="chat-container" id="chat"></div>
+<div class="chat" id="chat"></div>
 
-<div class="input-area">
+<div class="input-box">
 <input id="input" placeholder="Ask about technology...">
 <button onclick="send()">Send</button>
 </div>
@@ -101,19 +102,19 @@ button {
 
 const chat = document.getElementById("chat");
 
-/* ADD MESSAGE */
-function addMessage(text, type) {
+/* Add message */
+function add(text, type) {
     let div = document.createElement("div");
-    div.className = "message " + type;
+    div.className = "msg " + type;
     div.innerText = text;
     chat.appendChild(div);
     chat.scrollTop = chat.scrollHeight;
 }
 
-/* TYPING EFFECT */
-function typing(text) {
+/* Typing effect */
+function botReply(text) {
     let div = document.createElement("div");
-    div.className = "message bot";
+    div.className = "msg bot";
     chat.appendChild(div);
 
     let i = 0;
@@ -121,10 +122,25 @@ function typing(text) {
         div.innerText += text[i];
         i++;
         if(i >= text.length) clearInterval(interval);
-    }, 20);
+    }, 15);
 }
 
-/* MAIN FUNCTION */
+/* Add link button */
+function addLink(text, url) {
+    let div = document.createElement("div");
+    div.className = "msg bot";
+
+    let a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.innerText = text;
+    a.style.color = "#00eaff";
+
+    div.appendChild(a);
+    chat.appendChild(div);
+}
+
+/* MAIN AI */
 function send() {
 
     let q = document.getElementById("input").value;
@@ -132,53 +148,69 @@ function send() {
 
     if(!q) return;
 
-    addMessage(q, "user");
+    add(q, "user");
     document.getElementById("input").value = "";
-
-    /* TECH CHECK */
-    let techWords = ["computer","ai","chatgpt","code","html","css","js","javascript","python","tech","software","hardware","app","website"];
-    let isTech = techWords.some(w => lower.includes(w));
 
     setTimeout(() => {
 
+        /* TECH FILTER */
+        let techWords = ["computer","ai","chatgpt","html","css","javascript","python","coding","software","hardware","technology","app","website"];
+        let isTech = techWords.some(word => lower.includes(word));
+
         if(!isTech) {
-            typing("⚠️ This question is outside my domain. Please ask about computer technology.");
+            botReply("⚠️ This query appears to be outside my domain. I am currently designed to assist only with computer technology related topics.");
             return;
         }
 
-        /* KNOWLEDGE BASE */
-        if(lower.includes("chatgpt")) {
-            typing("ChatGPT is an advanced AI chatbot that can understand and generate human-like responses.");
+        /* BASIC KNOWLEDGE */
+        if(lower.includes("html")) {
+            botReply("HTML is the foundation of web pages. It defines structure like headings, text, images, and links.");
         }
-        else if(lower.includes("html")) {
-            typing("HTML is used to structure web pages.");
-        }
+
         else if(lower.includes("css")) {
-            typing("CSS styles and designs websites.");
+            botReply("CSS is used to style websites. It controls colors, layout, spacing, and responsiveness.");
         }
+
         else if(lower.includes("javascript")) {
-            typing("JavaScript adds interactivity to websites.");
+            botReply("JavaScript enables interactivity such as buttons, animations, and dynamic updates.");
         }
+
         else if(lower.includes("ai")) {
-            typing("AI allows machines to simulate human intelligence.");
+            botReply("Artificial Intelligence allows machines to simulate human thinking and problem-solving.");
         }
 
-        /* YOUTUBE */
-        else if(lower.includes("video") || lower.includes("learn")) {
-            typing("🎬 Opening YouTube for better learning...");
-            window.open("https://www.youtube.com/results?search_query=" + q);
+        else if(lower.includes("chatgpt")) {
+            botReply("ChatGPT is an advanced AI chatbot capable of answering questions and generating content.");
         }
 
-        /* ADVANCED → AI */
-        else if(q.length > 25) {
-            typing("🧠 Advanced query detected... Redirecting to AI...");
-            window.open("https://chat.openai.com/");
+        /* ADVANCED QUERY DETECTION */
+        else if(q.length > 30) {
+
+            botReply("🧠 This appears to be an advanced query beyond my current training.");
+
+            setTimeout(() => {
+                botReply("I am a lightweight AI assistant and may not provide a fully accurate answer for this topic.");
+
+                setTimeout(() => {
+                    botReply("However, you can explore this using a more advanced AI system.");
+
+                    addLink("👉 Ask ChatGPT", "https://chat.openai.com/");
+                }, 1200);
+            }, 800);
         }
 
-        /* DEFAULT GOOGLE */
+        /* UNKNOWN */
         else {
-            typing("🔍 Searching Google...");
-            window.open("https://www.google.com/search?q=" + q);
+
+            botReply("🤖 I currently do not have enough training data to answer this question accurately.");
+
+            setTimeout(() => {
+                botReply("For better accuracy, I recommend exploring trusted sources or advanced AI tools.");
+
+                setTimeout(() => {
+                    addLink("🔍 Search on Google", "https://www.google.com/search?q=" + q);
+                }, 1200);
+            }, 800);
         }
 
     }, 500);
