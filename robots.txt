@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sks-com-world.github.io/SKCW-web/sitemap.xml
+Sitemap: https://yourwebsiteurl.com/sitemap.xml
