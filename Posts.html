@@ -1,198 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SKCW Posts | Daily Updates by Suryakiran</title>
+<meta charset="UTF-8">
+<title>SKCW Posts | Daily Updates by Suryakiran</title>
 
 <meta name="description" content="Read daily posts, updates, and videos from SKCW Web by Suryakiran.">
-
 <meta name="keywords" content="SKCW posts, daily updates, tech posts, Suryakiran blog">
-
 <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0a0f1f;
-            color: #ffffff;
-        }
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: url("banner.jpeg") center/cover fixed;
+    color: white;
+}
 
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #11183a;
-        }
+/* DARK OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(5,10,30,0.92);
+    z-index: -1;
+}
 
-        header h1 {
-            color: #00eaff;
-            margin-bottom: 5px;
-        }
+/* HEADER */
+header {
+    text-align: center;
+    padding: 30px 20px;
+}
 
-        .post-section {
-            margin: 25px;
-            padding: 25px;
-            background-color: #151c3d;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,234,255,0.25);
-            border-left: 5px solid #00eaff;
-        }
+header h1 {
+    color: #00eaff;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
 
-        .post-section h2 {
-            color: #00eaff;
-            margin-top: 0;
-        }
+header p {
+    color: #ccc;
+    font-size: 14px;
+}
 
-        .post-date {
-            font-size: 14px;
-            color: #bbbbbb;
-            margin-bottom: 10px;
-        }
+/* CONTAINER */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+}
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #0a0f1f;
-            color: #aaa;
-        }
-    </style>
+/* POSTS */
+.post-section {
+    margin: 25px 0;
+    padding: 25px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0,234,255,0.15);
+    transition: 0.3s;
+}
+
+.post-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0,234,255,0.35);
+}
+
+/* PINNED */
+.pinned {
+    border: 2px solid gold;
+    box-shadow: 0 0 25px gold;
+}
+
+/* TITLES */
+.post-section h2 {
+    color: #00eaff;
+    margin-top: 0;
+}
+
+/* DATE */
+.post-date {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #00eaff, #0077ff);
+    color: #000;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00eaff;
+}
+
+/* IFRAME */
+iframe {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* IMAGE */
+.post-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    display: block;
+    margin: 15px auto;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+    font-size: 13px;
+}
+
+</style>
 </head>
 
-<h1 style="display:none;">
-SKCW Posts - Daily Updates and Videos
-</h1>
-    
 <body>
 
+<h1 style="display:none;">SKCW Posts - Daily Updates and Videos</h1>
+
 <header>
-    <h1>Post Section</h1>
-    <p>Hello friends, welcome to my post section of the website.</p>
-    <p>Here I will post messages sometime that you can read publicly.</p>
+    <h1>📢 SKCW Posts</h1>
+    <p>Latest updates, videos, and announcements</p>
 </header>
 
-<!-- ✅ POST 1 -->
-    <section class="post-section" style="border:2px solid gold; position:relative;">
+<div class="container">
 
-    <!-- Pin Label -->
-    <div style="color:gray; font-size:14px; margin-bottom:8px;">
-        📌 Pinned
-    </div>
+<!-- 📌 PINNED POST -->
+<section class="post-section pinned">
+    <div style="color:gold; font-size:14px;">📌 Featured</div>
 
-    <!-- Title -->
     <h2>About Me — Visit My Main Webpage</h2>
-
-    <!-- Date -->
-    <div class="post-date">Posted on: 17 February 2026</div>
-
-    <!-- Paragraph -->
-    <p>
-        Hello friends. So if you want to know about me, this is my main webpage.
-    </p>
-
-    <!-- Button -->
-    <a href="index.html" 
-       style="display:inline-block; padding:10px 20px; background:#007BFF; color:white; text-decoration:none; border-radius:6px; margin-top:10px;">
-       Main Webpage
-    </a>
-
-</section>
-    
-<section class="post-section">
-
-    <h2>A New Video</h2>
-
-    <div class="post-date">Posted on: 24 February 2026</div>
-
-    <p>
-        Hey friends, my exams are over, so I have posted a new video as a scheduled premiere, so watch it 👇
-    </p>
-
-    <iframe 
-        src="https://www.youtube.com/embed/1KKkozFGTEY"
-        style="width:100%; max-width:560px; aspect-ratio:16/9; display:block; margin:15px auto; border-radius:10px;"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
-
-</section>
-
-
-<section class="post-section">
-
-    <h2>My Most Viewed Non-AI-Generated Short</h2>
-
     <div class="post-date">Posted on: 17 February 2026</div>
 
     <p>
-        Hey friends, my one video got more views that is AI-generated, but look at this.
-        This video got so much views and it is also not an AI-generated video. Here it is 👇
+        Want to know more about me and my work? Visit my official homepage.
     </p>
 
-    <iframe 
-        src="https://www.youtube.com/embed/9-ZWGTwl89A"
-        style="width:100%; max-width:360px; aspect-ratio:9/16; display:block; margin:15px auto; border-radius:10px;"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
-
+    <a href="index.html" class="btn">Visit Main Website</a>
 </section>
 
-
+<!-- NEW VIDEO -->
 <section class="post-section">
-    <h2>My Most Viewed Video</h2>
-    <div class="post-date">Posted on: 16 February 2026</div>
+    <h2>🎬 A New Video</h2>
+    <div class="post-date">24 February 2026</div>
 
-    <p>
-        Hey friends, here is my most viewed YouTube video 👇
-    </p>
+    <p>My exams are over! Check out my latest video 👇</p>
 
-    <iframe 
-        src="https://www.youtube.com/embed/BrWz8Jtn3vw"
-        style="width:100%; max-width:560px; aspect-ratio:16/9; display:block; margin:15px auto; border-radius:10px;"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
+    <iframe src="https://www.youtube.com/embed/1KKkozFGTEY" 
+        style="aspect-ratio:16/9;" allowfullscreen></iframe>
 </section>
 
-
+<!-- SHORT -->
 <section class="post-section">
-    <h2>POST Today's My Incident</h2>
-    <div class="post-date">Posted on: 12 February 2026</div>
-    <p>
-        So friends and incident had happened with me yesterday.if you want to know it, click on this image
-    </p>
+    <h2>🔥 Most Viewed Non-AI Short</h2>
+    <div class="post-date">17 February 2026</div>
+
+    <p>This short gained huge views and it's not AI-generated 👇</p>
+
+    <iframe src="https://www.youtube.com/embed/9-ZWGTwl89A" 
+        style="aspect-ratio:9/16;"></iframe>
+</section>
+
+<!-- VIDEO -->
+<section class="post-section">
+    <h2>📈 Most Viewed Video</h2>
+    <div class="post-date">16 February 2026</div>
+
+    <p>My most popular video 👇</p>
+
+    <iframe src="https://www.youtube.com/embed/BrWz8Jtn3vw" 
+        style="aspect-ratio:16/9;"></iframe>
+</section>
+
+<!-- INCIDENT -->
+<section class="post-section">
+    <h2>⚠️ My Incident</h2>
+    <div class="post-date">12 February 2026</div>
+
+    <p>Click below to watch what happened 👇</p>
+
     <a href="https://youtube.com/shorts/2aq2iHPBe_A?si=AX1JsZCWYTr9BmUg" target="_blank">
-        <img src="incident.png" alt="YouTube Video" 
-             style="width:100%; max-width:500px; height:auto; border-radius:10px; display:block; margin:15px auto;">
+        <img src="incident.png" class="post-img">
     </a>
 </section>
 
-
+<!-- TEXT -->
 <section class="post-section">
-    <h2>why aren't I putting videos?</h2>
-    <div class="post-date">Posted on: 11 February 2026</div>
+    <h2>📚 Why No Videos?</h2>
+    <div class="post-date">11 February 2026</div>
+
     <p>
-        So friends I can't post videos because 
-        it's my exam time but as soon as my exam gets finished 
-        i shall try to post the videos again.
+        Due to exams, I paused video uploads. New content is now coming regularly!
     </p>
 </section>
 
-
+<!-- FIRST POST -->
 <section class="post-section">
-    <h2>Welcome to My First Post</h2>
-    <div class="post-date">Posted on: 10 February 2026</div>
+    <h2>🎉 My First Post</h2>
+    <div class="post-date">10 February 2026</div>
+
     <p>
-        Hello friends! This is my first post on SKCW web.
-        I will share computer technology knowledge here regularly.
+        This is my first post on SKCW Web. I will share computer knowledge regularly.
     </p>
 </section>
-<!-- 🔼 ADD NEW POSTS ABOVE THIS LINE 🔼 -->
+
+</div>
 
 <footer>
-    © 2026 SKCW web | Posts by Suryakiran
+    © 2026 SKCW Web | Created by Suryakiran
 </footer>
 
 </body>
