@@ -13,99 +13,153 @@
 <!-- Favicon -->
 <link rel="icon" href="favicon.ico">
 
-<!-- Styles -->
 <style>
 
-body {
+/* RESET */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
     font-family: Arial, sans-serif;
     background: url("banner.jpeg") no-repeat center center/cover fixed;
     color: white;
 }
 
-/* Overlay */
+/* DARK OVERLAY */
 body::before {
     content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,30,0.85);
+    background: rgba(5,10,30,0.88);
     z-index: -1;
 }
 
-/* Navbar */
+/* NAVBAR */
 nav {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
     padding: 15px;
-    background: #000;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(10px);
 }
 
 nav a {
     color: #00eaff;
-    margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-/* Hero */
+nav a:hover {
+    color: white;
+}
+
+/* HERO */
 header {
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px;
 }
 
 .logo {
     width: 120px;
     border-radius: 50%;
     border: 3px solid #00eaff;
+    box-shadow: 0 0 25px #00eaff;
 }
 
 h1 {
     color: #00eaff;
+    margin-top: 15px;
 }
 
+.subtitle {
+    color: #ccc;
+    margin-top: 5px;
+}
+
+/* BUTTON */
 .btn {
     display: inline-block;
-    margin-top: 15px;
-    padding: 12px 25px;
+    margin-top: 20px;
+    padding: 12px 30px;
     background: linear-gradient(45deg,#00eaff,#0077ff);
     color: black;
-    border-radius: 25px;
+    border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-/* Sections */
-section {
-    margin: 25px;
-    padding: 25px;
-    background: rgba(0,0,50,0.7);
-    border-radius: 15px;
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px #00eaff;
+}
+
+/* SECTIONS */
+.section {
+    margin: 30px;
+    padding: 30px;
+    background: rgba(10,20,60,0.7);
+    border-radius: 18px;
     text-align: center;
+    box-shadow: 0 0 25px rgba(0,234,255,0.15);
 }
 
-/* About Image */
+/* 🔥 SPECIAL AI SECTION */
+.ai-section {
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 25px #00eaff;
+}
+
+/* TITLES */
+.section h2 {
+    color: #00eaff;
+    margin-bottom: 10px;
+}
+
+/* ABOUT IMAGE */
 .about img {
     width: 180px;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 3px solid #00eaff;
+    margin-top: 10px;
 }
 
-/* Social */
+/* AUDIO */
+audio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* SOCIAL */
 .social a {
     display: inline-block;
     margin: 8px;
-    padding: 10px 15px;
+    padding: 10px 18px;
     border: 2px solid #00eaff;
     border-radius: 20px;
     color: #00eaff;
     text-decoration: none;
+    transition: 0.3s;
 }
 
-/* Footer */
+.social a:hover {
+    background: #00eaff;
+    color: black;
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 15px;
     color: #aaa;
+    margin-top: 20px;
 }
 
 </style>
@@ -124,55 +178,63 @@ footer {
 <header>
 <img src="logo.jpeg" alt="SKCW Web Logo" class="logo">
 <h1>SKCW Web</h1>
-<p>Learn Computer Technology Like a Professional 🚀</p>
+<p class="subtitle">Learn Computer Technology Like a Professional 🚀</p>
 
 <a class="btn" href="https://youtube.com/@sks_com_worldofficial" target="_blank">
 Subscribe Now
 </a>
 </header>
 
-<!-- AI SECTION -->
-<section>
-<h2>AI Assistant</h2>
-<p>Use our smart AI assistant for computer technology help.</p>
+<!-- 🔥 AI SECTION (PROFESSIONAL LOOK RESTORED) -->
+<section class="section ai-section">
+<h2>🤖 AI Assistant</h2>
+<p>
+Have a question? Use our intelligent AI assistant to get help with
+computer technology, coding, and learning resources instantly.
+</p>
+
 <a class="btn" href="chatbot.html">Open AI Assistant</a>
 </section>
 
 <!-- ABOUT -->
-<section class="about">
+<section class="section about">
 <h2>About Me</h2>
 
 <img src="me.jpeg" alt="Photo of Suryakiran">
 
 <p><strong>Suryakiran</strong></p>
 <p>I create content to make computer technology simple and powerful.</p>
-
 </section>
 
 <!-- WELCOME -->
-<section>
+<section class="section">
 <h2>Welcome</h2>
-<p>Welcome to SKCW Web — your ultimate destination to learn computer technology.</p>
+
+<p>
+Welcome to SKCW Web — your ultimate destination to learn computer technology.
+</p>
 
 <audio controls>
 <source src="intro.mpeg" type="audio/mpeg">
 Your browser does not support audio.
 </audio>
-
 </section>
 
 <!-- POSTS -->
-<section>
+<section class="section">
 <h2>Explore Content</h2>
-<p>Discover posts and updates.</p>
+<p>Discover posts, updates, and learning content.</p>
 
 <a class="btn" href="Posts.html">View Posts</a>
 </section>
 
 <!-- FEEDBACK -->
-<section>
+<section class="section">
 <h2>Feedback & Suggestions</h2>
-<p>Your feedback helps improve this website.</p>
+
+<p>
+Your feedback helps us improve and deliver better content.
+</p>
 
 <a class="btn" href="https://forms.gle/v9jZCAqiNWzUXzZWA" target="_blank">
 Give Feedback
@@ -180,8 +242,9 @@ Give Feedback
 </section>
 
 <!-- CONTACT -->
-<section>
+<section class="section">
 <h2>Get In Touch</h2>
+
 <p>For collaboration or questions.</p>
 
 <a class="btn" href="mailto:sks.com.world@gmail.com">
@@ -190,7 +253,7 @@ Contact Me
 </section>
 
 <!-- SOCIAL -->
-<section>
+<section class="section">
 <h2>Follow Me</h2>
 
 <div class="social">
@@ -205,7 +268,7 @@ Contact Me
 
 <!-- FOOTER -->
 <footer>
-© 2026 SKCW Web | All Rights Reserved
+© 2026 SKCW Web | AI Powered Learning 🚀
 </footer>
 
 </body>
