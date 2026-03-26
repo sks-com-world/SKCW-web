@@ -10,195 +10,212 @@
 <meta name="description" content="Learn computer technology with SKCW Web by Suryakiran.">
 <meta name="robots" content="index, follow">
 
+<!-- Favicon -->
 <link rel="icon" href="favicon.ico">
 
-<!-- GOOGLE FONT -->
+<!-- 🔥 SCHEMA MARKUP (VERY IMPORTANT FOR BING) -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Person",
+ "name": "Suryakiran",
+ "url": "https://yourwebsiteurl.com",
+ "sameAs": [
+   "https://youtube.com/@sks_com_worldofficial",
+   "https://www.instagram.com/sks_com_worldofficial",
+   "https://x.com/SKs_Com_World"
+ ],
+ "jobTitle": "Content Creator",
+ "description": "Creator of SKCW Web, teaching computer technology."
+}
+</script>
+
+<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 /* BODY */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: url("banner.jpeg") no-repeat center center/cover fixed;
-    color: white;
-    overflow-x: hidden;
+body{
+font-family:'Poppins',sans-serif;
+background:url("banner.jpeg") no-repeat center/cover fixed;
+color:white;
+overflow-x:hidden;
 }
 
-/* DARK OVERLAY */
-body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,30,0.95), rgba(0,20,60,0.9));
-    z-index: -1;
+/* OVERLAY */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(135deg, rgba(0,0,30,0.95), rgba(0,20,60,0.9));
+z-index:-1;
 }
 
 /* NAVBAR */
-nav {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 15px;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(15px);
-    z-index: 1000;
+nav{
+position:sticky;
+top:0;
+display:flex;
+justify-content:center;
+gap:40px;
+padding:15px;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(15px);
+z-index:1000;
 }
 
-nav a {
-    color: #00eaff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
+nav a{
+color:#00eaff;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
 }
 
-nav a:hover {
-    color: white;
-    text-shadow: 0 0 10px #00eaff;
+nav a:hover{
+color:white;
+text-shadow:0 0 10px #00eaff;
 }
 
 /* HERO */
-header {
-    text-align: center;
-    padding: 70px 20px;
-    animation: fadeIn 1.5s ease;
+header{
+text-align:center;
+padding:70px 20px;
+animation:fadeIn 1.5s ease;
 }
 
-.logo {
-    width: 130px;
-    border-radius: 50%;
-    border: 3px solid #00eaff;
-    box-shadow: 0 0 30px #00eaff;
-    animation: glow 2s infinite alternate;
+.logo{
+width:130px;
+border-radius:50%;
+border:3px solid #00eaff;
+box-shadow:0 0 30px #00eaff;
+animation:glow 2s infinite alternate;
 }
 
-h1 {
-    font-size: 2.5em;
-    color: #00eaff;
-    margin-top: 15px;
+h1{
+font-size:2.5em;
+color:#00eaff;
+margin-top:15px;
 }
 
-.subtitle {
-    color: #ccc;
+.subtitle{
+color:#ccc;
 }
 
 /* BUTTON */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 14px 35px;
-    background: linear-gradient(45deg,#00eaff,#0077ff);
-    color: black;
-    border-radius: 40px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 35px;
+background:linear-gradient(45deg,#00eaff,#0077ff);
+color:black;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
 }
 
-.btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px #00eaff;
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px #00eaff;
 }
 
-/* SECTIONS */
-.section {
-    margin: 40px 20px;
-    padding: 35px;
-    border-radius: 20px;
-    text-align: center;
+/* SECTION (ALL GLOW) */
+.section{
+margin:40px 20px;
+padding:35px;
+border-radius:20px;
+text-align:center;
 
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
 
-    border: 1px solid rgba(0,234,255,0.3);
+border:1px solid rgba(0,234,255,0.3);
 
-    box-shadow:
-        0 0 15px rgba(0,234,255,0.2),
-        0 0 40px rgba(0,234,255,0.1);
+box-shadow:
+0 0 15px rgba(0,234,255,0.2),
+0 0 40px rgba(0,234,255,0.1);
 
-    transition: 0.4s;
+transition:0.4s;
 }
 
-/* HOVER EFFECT */
-.section:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow:
-        0 0 25px rgba(0,234,255,0.5),
-        0 0 60px rgba(0,234,255,0.2);
+.section:hover{
+transform:translateY(-5px) scale(1.01);
+box-shadow:
+0 0 25px rgba(0,234,255,0.5),
+0 0 60px rgba(0,234,255,0.2);
 }
 
-/* AI SECTION SPECIAL */
-.ai-section {
-    border: 2px solid #00eaff;
-    box-shadow:
-        0 0 25px #00eaff,
-        0 0 60px rgba(0,234,255,0.5);
+/* AI SECTION EXTRA */
+.ai-section{
+border:2px solid #00eaff;
+box-shadow:
+0 0 25px #00eaff,
+0 0 60px rgba(0,234,255,0.5);
 }
 
 /* TITLES */
-.section h2 {
-    color: #00eaff;
-    margin-bottom: 10px;
+.section h2{
+color:#00eaff;
+margin-bottom:10px;
 }
 
 /* ABOUT IMAGE */
-.about img {
-    width: 180px;
-    border-radius: 15px;
-    border: 3px solid #00eaff;
-    box-shadow: 0 0 20px #00eaff;
+.about img{
+width:180px;
+border-radius:15px;
+border:3px solid #00eaff;
+box-shadow:0 0 20px #00eaff;
 }
 
 /* AUDIO */
-audio {
-    width: 100%;
-    margin-top: 15px;
+audio{
+width:100%;
+margin-top:15px;
 }
 
 /* SOCIAL */
-.social a {
-    display: inline-block;
-    margin: 8px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: 1px solid #00eaff;
-    color: #00eaff;
-    text-decoration: none;
-    transition: 0.3s;
+.social a{
+display:inline-block;
+margin:8px;
+padding:10px 20px;
+border-radius:25px;
+border:1px solid #00eaff;
+color:#00eaff;
+text-decoration:none;
+transition:0.3s;
 }
 
-.social a:hover {
-    background: #00eaff;
-    color: black;
-    box-shadow: 0 0 20px #00eaff;
+.social a:hover{
+background:#00eaff;
+color:black;
+box-shadow:0 0 20px #00eaff;
 }
 
 /* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #aaa;
+footer{
+text-align:center;
+padding:20px;
+color:#aaa;
 }
 
 /* ANIMATIONS */
-@keyframes glow {
-    from { box-shadow: 0 0 10px #00eaff; }
-    to { box-shadow: 0 0 30px #00eaff; }
+@keyframes glow{
+from{box-shadow:0 0 10px #00eaff;}
+to{box-shadow:0 0 30px #00eaff;}
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 </style>
@@ -206,7 +223,7 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
 <a href="index.html">Home</a>
 <a href="Posts.html">Posts</a>
@@ -227,7 +244,7 @@ Subscribe Now
 <!-- AI -->
 <section class="section ai-section">
 <h2>🤖 AI Assistant</h2>
-<p>Get instant answers and explore technology smarter.</p>
+<p>Ask questions and explore technology smarter.</p>
 <a class="btn" href="chatbot.html">Launch AI</a>
 </section>
 
