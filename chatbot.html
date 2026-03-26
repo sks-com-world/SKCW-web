@@ -6,8 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
-/* BODY */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -15,69 +13,71 @@ body {
     color: white;
 }
 
-/* OVERLAY */
+/* DARK OVERLAY */
 body::before {
     content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,30,0.9);
+    background: rgba(0,0,40,0.9);
     z-index: -1;
 }
 
 /* HEADER */
 header {
     text-align: center;
-    padding: 20px;
-}
-
-header h1 {
+    padding: 15px;
     color: #00eaff;
 }
 
-/* CHAT BOX */
-.chatbox {
-    max-width: 500px;
-    margin: 30px auto;
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
+/* CHAT AREA */
+.chat-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 15px;
+}
+
+/* MESSAGES */
+.message {
+    padding: 10px 15px;
     border-radius: 15px;
-    backdrop-filter: blur(10px);
+    margin: 10px 0;
+    max-width: 80%;
+}
+
+.user {
+    background: #0077ff;
+    margin-left: auto;
+}
+
+.bot {
+    background: rgba(255,255,255,0.1);
 }
 
 /* INPUT */
+.input-area {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #111;
+    display: flex;
+    padding: 10px;
+}
+
 input {
-    width: 100%;
-    padding: 12px;
+    flex: 1;
+    padding: 10px;
     border-radius: 10px;
     border: none;
 }
 
-/* BUTTON */
 button {
-    width: 100%;
-    margin-top: 10px;
-    padding: 12px;
-    border-radius: 10px;
+    margin-left: 10px;
+    padding: 10px;
     border: none;
-    background: linear-gradient(45deg, #00eaff, #0077ff);
+    border-radius: 10px;
+    background: #00eaff;
     font-weight: bold;
-}
-
-/* OUTPUT */
-#response {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #ccc;
-}
-
-/* BACK BUTTON */
-.back {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: #00eaff;
-    text-decoration: none;
 }
 
 </style>
@@ -86,61 +86,102 @@ button {
 <body>
 
 <header>
-    <h1>🤖 SKCW AI Assistant</h1>
-    <p>Ask anything about Computer Technology</p>
+<h2>🤖 SKCW AI Assistant</h2>
+<p>Smart Tech Helper</p>
 </header>
 
-<div class="chatbox">
+<div class="chat-container" id="chat"></div>
 
-    <input id="question" placeholder="Ask about coding, tech, AI...">
-
-    <button onclick="processQuestion()">Ask</button>
-
-    <div id="response"></div>
-
+<div class="input-area">
+<input id="input" placeholder="Ask about technology...">
+<button onclick="send()">Send</button>
 </div>
-
-<a class="back" href="index.html">⬅ Back to Home</a>
 
 <script>
 
-function processQuestion() {
+const chat = document.getElementById("chat");
 
-    let q = document.getElementById("question").value.toLowerCase();
-    let res = document.getElementById("response");
+/* ADD MESSAGE */
+function addMessage(text, type) {
+    let div = document.createElement("div");
+    div.className = "message " + type;
+    div.innerText = text;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+}
 
-    // TECH RELATED KEYWORDS
-    let techWords = [
-        "computer","coding","programming","html","css","javascript",
-        "python","ai","technology","software","hardware","app","website"
-    ];
+/* TYPING EFFECT */
+function typing(text) {
+    let div = document.createElement("div");
+    div.className = "message bot";
+    chat.appendChild(div);
 
-    let isTech = techWords.some(word => q.includes(word));
+    let i = 0;
+    let interval = setInterval(() => {
+        div.innerText += text[i];
+        i++;
+        if(i >= text.length) clearInterval(interval);
+    }, 20);
+}
 
-    if(!isTech) {
-        res.innerText = "⚠️ This question is not related to Computer Technology. Please ask relevant questions.";
-        return;
-    }
+/* MAIN FUNCTION */
+function send() {
 
-    // SMART REDIRECT LOGIC
+    let q = document.getElementById("input").value;
+    let lower = q.toLowerCase();
 
-    if(q.includes("video") || q.includes("youtube")) {
-        res.innerText = "🎬 Redirecting you to YouTube for better learning...";
-        window.open("https://www.youtube.com/results?search_query=" + q);
-    }
-    else if(q.includes("code") || q.includes("programming") || q.includes("html")) {
-        res.innerText = "💻 Redirecting to AI for coding help...";
-        window.open("https://chat.openai.com/");
-    }
-    else if(q.includes("website") || q.includes("post")) {
-        res.innerText = "🌐 Opening your learning posts...";
-        window.open("Posts.html");
-    }
-    else {
-        res.innerText = "🔍 Searching Google for best results...";
-        window.open("https://www.google.com/search?q=" + q);
-    }
+    if(!q) return;
 
+    addMessage(q, "user");
+    document.getElementById("input").value = "";
+
+    /* TECH CHECK */
+    let techWords = ["computer","ai","chatgpt","code","html","css","js","javascript","python","tech","software","hardware","app","website"];
+    let isTech = techWords.some(w => lower.includes(w));
+
+    setTimeout(() => {
+
+        if(!isTech) {
+            typing("⚠️ This question is outside my domain. Please ask about computer technology.");
+            return;
+        }
+
+        /* KNOWLEDGE BASE */
+        if(lower.includes("chatgpt")) {
+            typing("ChatGPT is an advanced AI chatbot that can understand and generate human-like responses.");
+        }
+        else if(lower.includes("html")) {
+            typing("HTML is used to structure web pages.");
+        }
+        else if(lower.includes("css")) {
+            typing("CSS styles and designs websites.");
+        }
+        else if(lower.includes("javascript")) {
+            typing("JavaScript adds interactivity to websites.");
+        }
+        else if(lower.includes("ai")) {
+            typing("AI allows machines to simulate human intelligence.");
+        }
+
+        /* YOUTUBE */
+        else if(lower.includes("video") || lower.includes("learn")) {
+            typing("🎬 Opening YouTube for better learning...");
+            window.open("https://www.youtube.com/results?search_query=" + q);
+        }
+
+        /* ADVANCED → AI */
+        else if(q.length > 25) {
+            typing("🧠 Advanced query detected... Redirecting to AI...");
+            window.open("https://chat.openai.com/");
+        }
+
+        /* DEFAULT GOOGLE */
+        else {
+            typing("🔍 Searching Google...");
+            window.open("https://www.google.com/search?q=" + q);
+        }
+
+    }, 500);
 }
 
 </script>
