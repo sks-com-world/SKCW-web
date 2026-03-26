@@ -6,14 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+/* BODY */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background: url("banner.jpeg") center/cover fixed;
     color: white;
+    overflow-x: hidden; /* FIX overflow */
 }
 
-/* Overlay */
+/* OVERLAY */
 body::before {
     content: "";
     position: fixed;
@@ -23,39 +26,48 @@ body::before {
     z-index: -1;
 }
 
-/* Header */
+/* HEADER */
 header {
     text-align: center;
     padding: 15px;
     color: #00eaff;
 }
 
-/* Chat */
+/* CHAT BOX */
 .chat {
-    max-width: 650px;
+    max-width: 700px;
     margin: auto;
     padding: 15px;
+    height: 75vh;
+    overflow-y: auto; /* SCROLL FIX */
 }
 
-/* Messages */
+/* MESSAGE */
 .msg {
     padding: 12px 16px;
     border-radius: 15px;
     margin: 10px 0;
-    max-width: 80%;
+    max-width: 75%;
     line-height: 1.5;
+
+    /* TEXT FIX */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
+/* USER */
 .user {
     background: #0077ff;
     margin-left: auto;
 }
 
+/* BOT */
 .bot {
     background: rgba(255,255,255,0.1);
 }
 
-/* Input */
+/* INPUT AREA */
 .input-box {
     position: fixed;
     bottom: 0;
@@ -81,6 +93,11 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
+
+button:hover {
+    background: #00c4d6;
+}
+
 </style>
 </head>
 
@@ -88,13 +105,13 @@ button {
 
 <header>
 <h2>🤖 SKCW AI Assistant</h2>
-<p>Smart Technology Guide</p>
+<p>Technology Support Bot</p>
 </header>
 
 <div class="chat" id="chat"></div>
 
 <div class="input-box">
-<input id="input" placeholder="Ask about technology...">
+<input id="input" placeholder="Ask about technology..." onkeydown="if(event.key==='Enter') send()">
 <button onclick="send()">Send</button>
 </div>
 
@@ -102,7 +119,7 @@ button {
 
 const chat = document.getElementById("chat");
 
-/* Add message */
+/* ADD MESSAGE */
 function add(text, type) {
     let div = document.createElement("div");
     div.className = "msg " + type;
@@ -111,7 +128,7 @@ function add(text, type) {
     chat.scrollTop = chat.scrollHeight;
 }
 
-/* Typing effect */
+/* BOT REPLY */
 function botReply(text) {
     let div = document.createElement("div");
     div.className = "msg bot";
@@ -123,9 +140,11 @@ function botReply(text) {
         i++;
         if(i >= text.length) clearInterval(interval);
     }, 15);
+
+    chat.scrollTop = chat.scrollHeight;
 }
 
-/* Add link button */
+/* ADD LINK */
 function addLink(text, url) {
     let div = document.createElement("div");
     div.className = "msg bot";
@@ -138,79 +157,86 @@ function addLink(text, url) {
 
     div.appendChild(a);
     chat.appendChild(div);
+
+    chat.scrollTop = chat.scrollHeight;
 }
 
-/* MAIN AI */
+/* MAIN FUNCTION */
 function send() {
 
-    let q = document.getElementById("input").value;
+    let inputBox = document.getElementById("input");
+    let q = inputBox.value.trim();
     let lower = q.toLowerCase();
 
     if(!q) return;
 
     add(q, "user");
-    document.getElementById("input").value = "";
+    inputBox.value = "";
 
     setTimeout(() => {
 
-        /* TECH FILTER */
-        let techWords = ["computer","ai","chatgpt","html","css","javascript","python","coding","software","hardware","technology","app","website"];
+        /* NON-TECH BLOCK */
+        let techWords = ["computer","ai","html","css","javascript","python","coding","software","hardware","technology","website","app"];
         let isTech = techWords.some(word => lower.includes(word));
 
         if(!isTech) {
-            botReply("⚠️ This query appears to be outside my domain. I am currently designed to assist only with computer technology related topics.");
+            botReply("⚠️ This question is outside my domain. I currently specialize only in computer technology topics.");
             return;
         }
 
-        /* BASIC KNOWLEDGE */
+        /* KNOWLEDGE BASE */
         if(lower.includes("html")) {
-            botReply("HTML is the foundation of web pages. It defines structure like headings, text, images, and links.");
+            botReply("HTML is used to create the structure of web pages like headings, text, images, and links.");
         }
 
         else if(lower.includes("css")) {
-            botReply("CSS is used to style websites. It controls colors, layout, spacing, and responsiveness.");
+            botReply("CSS is used to design and style web pages, including colors, layouts, and responsiveness.");
         }
 
-        else if(lower.includes("javascript")) {
-            botReply("JavaScript enables interactivity such as buttons, animations, and dynamic updates.");
+        else if(lower.includes("javascript") || lower.includes("js")) {
+            botReply("JavaScript makes websites interactive. It handles actions like clicks, animations, and dynamic updates.");
         }
 
-        else if(lower.includes("ai")) {
-            botReply("Artificial Intelligence allows machines to simulate human thinking and problem-solving.");
+        else if(lower.includes("ai") || lower.includes("artificial intelligence")) {
+            botReply("Artificial Intelligence enables machines to simulate human thinking and decision-making.");
+        }
+
+        else if(lower.includes("computer")) {
+            botReply("A computer is an electronic device that processes data and performs tasks using programs.");
         }
 
         else if(lower.includes("chatgpt")) {
-            botReply("ChatGPT is an advanced AI chatbot capable of answering questions and generating content.");
+            botReply("ChatGPT is an AI chatbot that can answer questions, generate content, and assist users.");
         }
 
-        /* ADVANCED QUERY DETECTION */
-        else if(q.length > 30) {
+        /* UNKNOWN BUT SIMPLE */
+        else if(lower.includes("what") || lower.includes("define") || lower.includes("explain")) {
 
-            botReply("🧠 This appears to be an advanced query beyond my current training.");
+            botReply("🧠 I understand your question, but my current knowledge is limited for detailed explanations.");
 
             setTimeout(() => {
-                botReply("I am a lightweight AI assistant and may not provide a fully accurate answer for this topic.");
-
+                botReply("For accurate and complete information, you can use advanced AI systems.");
+                
                 setTimeout(() => {
-                    botReply("However, you can explore this using a more advanced AI system.");
+                    addLink("👉 Ask on ChatGPT", "https://chat.openai.com/");
+                }, 1000);
 
-                    addLink("👉 Ask ChatGPT", "https://chat.openai.com/");
-                }, 1200);
-            }, 800);
+            }, 1000);
         }
 
-        /* UNKNOWN */
+        /* FINAL FALLBACK */
         else {
 
-            botReply("🤖 I currently do not have enough training data to answer this question accurately.");
+            botReply("🤖 I am a lightweight AI assistant and I am not trained enough to answer this question accurately.");
 
             setTimeout(() => {
-                botReply("For better accuracy, I recommend exploring trusted sources or advanced AI tools.");
+                botReply("You can explore this topic further using search.");
 
                 setTimeout(() => {
                     addLink("🔍 Search on Google", "https://www.google.com/search?q=" + q);
-                }, 1200);
-            }, 800);
+                }, 1000);
+
+            }, 1000);
         }
 
     }, 500);
