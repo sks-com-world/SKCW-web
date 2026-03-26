@@ -1,174 +1,165 @@
-/<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SKCW Web | Learn Computer Technology with Suryakiran</title>
- <!-- MOBILE VIEW FIX (MOST IMPORTANT) -->
+<meta charset="UTF-8">
+
+<title>SKCW Web | Learn Computer Technology with Suryakiran</title>
+
+<!-- MOBILE FIX -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- FAVICON -->
-<link rel="icon" href="favicon.ico?v=20">
-
-<!-- MOBILE ICON -->
-<link rel="apple-touch-icon" href="logo.png">
-
-<!-- MANIFEST -->
-<link rel="manifest" href="manifest.json">
-
-<!-- THEME COLOR -->
-<meta name="theme-color" content="#0a0f1f">
+<link rel="icon" href="favicon.ico?v=50">
 
 <!-- SEO -->
 <meta name="description" content="SKCW web is a computer technology website by Suryakiran.">
 <meta name="robots" content="index, follow">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0a0f1f;
-            color: #ffffff;
-        }
 
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #11183a;
-        }
+<style>
 
-        header h1 {
-            margin-top: 15px;
-            color: #00eaff;
-        }
+/* BACKGROUND */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background: url("banner.png") no-repeat center center fixed;
+    background-size: cover;
+}
 
-        /* Logo */
-        .logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #00eaff;
-            object-fit: cover;
-        }
+/* DARK OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(10,15,31,0.85);
+    z-index: -1;
+}
 
-        /* Banner */
-        .banner {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            margin-top: 15px;
-            border-radius: 10px;
-        }
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+}
 
-        section {
-            margin: 25px;
-            padding: 25px;
-            background-color: #151c3d;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,234,255,0.2);
-        }
+.banner {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
-        h2 {
-            text-align: center;
-            color: #00eaff;
-        }
+.logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #00eaff;
+    margin-top: 10px;
+}
 
-        /* About section */
-        .about {
-            text-align: center;
-        }
+header h1 {
+    color: #00eaff;
+}
 
-        .about img {
-            width: 200px;
-            border-radius: 12px;
-            border: 3px solid #00eaff;
-            margin-bottom: 15px;
-        }
+/* SECTIONS */
+section {
+    margin: 20px;
+    padding: 20px;
+    background: rgba(21,28,61,0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,234,255,0.3);
+}
 
-        .details p {
-            margin: 6px 0;
-        }
+h2 {
+    text-align: center;
+    color: #00eaff;
+}
 
-        a {
-            color: #00eaff;
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* ABOUT IMAGE */
+.about img {
+    width: 180px;
+    border-radius: 12px;
+    border: 3px solid #00eaff;
+    display: block;
+    margin: 10px auto;
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #00eaff, #0077ff);
+    color: #000;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 28px;
-            background: linear-gradient(45deg, #00eaff, #0077ff);
-            color: #000;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+.btn:hover {
+    box-shadow: 0 0 15px #00eaff;
+}
 
-        .btn:hover {
-            transform: scale(1.07);
-            box-shadow: 0 0 15px #00eaff;
-        }
+/* SOCIAL */
+.social a {
+    display: inline-block;
+    margin: 6px;
+    padding: 10px 15px;
+    border: 2px solid #00eaff;
+    border-radius: 20px;
+    color: #00eaff;
+    text-decoration: none;
+}
 
-        /* Social buttons */
-        .social a {
-            display: inline-block;
-            margin: 8px;
-            padding: 10px 18px;
-            border: 2px solid #00eaff;
-            border-radius: 20px;
-            color: #00eaff;
-        }
+.social a:hover {
+    background: #00eaff;
+    color: #000;
+}
 
-        .social a:hover {
-            background-color: #00eaff;
-            color: #000;
-        }
+/* AUDIO */
+audio {
+    width: 100%;
+    margin-top: 15px;
+}
 
-        audio {
-            width: 100%;
-            margin-top: 15px;
-        }
+/* MOBILE FIX */
+@media (max-width: 600px) {
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #0a0f1f;
-            color: #aaa;
-        }
-    </style>
+    .logo {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    color: #aaa;
+}
+
+</style>
 </head>
 
 <body>
 
-<h1 style="display:none;">
-SKCW Web - Learn Computer Technology with Suryakiran
-</h1>
-    
 <header>
-    <img src="logo.jpeg" alt="SKCW Logo" class="logo">
-    <br>
-    <img src="banner.jpeg" alt="Website Banner" class="banner">
-    <h1>SKCW web</h1>
+    <img src="banner.jpeg" alt="Banner" class="banner">
+    <img src="logo.jpeg" alt="Logo" class="logo">
+    <h1>SKCW Web</h1>
 </header>
 
 <section class="about">
     <h2>About Me</h2>
-    <img src="me.jpeg" alt="Suryakiran Photo">
 
-    <div class="details">
-        <p><strong>Name:</strong> Suryakiran</p>
-        <p><strong>Date of Birth:</strong> 10 May 2012</p>
-        <p><strong>Contact info:</strong>
-            <a href="mailto:sks.com.world@gmail.com">
-                sks.com.world@gmail.com
-            </a>
-        </p>
-    </div>
+    <img src="me.jpeg" alt="My Photo">
+
+    <p><strong>Name:</strong> Suryakiran</p>
+    <p><strong>Date of Birth:</strong> 10 May 2012</p>
+    <p><strong>Email:</strong> sks.com.world@gmail.com</p>
 </section>
 
 <section>
@@ -182,6 +173,7 @@ SKCW Web - Learn Computer Technology with Suryakiran
         If you want more information, email me or DM me on Instagram or Twitter.
     </p>
 
+    <!-- YOUR AUDIO (IMPORTANT) -->
     <audio controls>
         <source src="intro.mpeg" type="audio/mpeg">
         Your browser does not support the audio file.
@@ -190,38 +182,34 @@ SKCW Web - Learn Computer Technology with Suryakiran
 
 <section>
     <h2>YouTube Channel</h2>
-    <p>
-        If you want to see my informative videos, please subscribe to my channel.
-    </p>
-    <a class="btn" href="https://youtube.com/@sks_com_worldofficial?si=an_sd4gL7rVl6m4_?sub_confirmation=1" target="_blank">
+    <p>If you want to see my informative videos, please subscribe.</p>
+    <a class="btn" href="https://youtube.com/@sks_com_worldofficial" target="_blank">
         Subscribe Now
     </a>
 </section>
 
 <section>
     <h2>Feedback</h2>
-    <p>If you have any feedback about me, click below.</p>
     <a class="btn" href="https://forms.gle/v9jZCAqiNWzUXzZWA" target="_blank">
         Feedback Form
     </a>
 </section>
 
- <section>
+<section>
     <h2>Daily Posts & Updates</h2>
     <p>
-        If you want to see my daily posts, I will post it on
-        YouTube posts, WhatsApp channel, and Twitter (X).
-        if you don't have an account,you can view my 
-        public post web page.Here it is </p> 
-        <a class="btn" href="Posts.html" target="_blank">
-            Post Section
-        </a>
+        Check my posts on YouTube, WhatsApp channel, and Twitter.
+        Or view them on my website.
+    </p>
+    <a class="btn" href="Posts.html">
+        Post Section
+    </a>
 </section>
-    
+
 <section>
-    <h2>Also Follow Me On</h2>
+    <h2>Follow Me</h2>
     <div class="social">
-        <a href="https://www.instagram.com/sks_com_worldofficial?igsh=OHZudDV0YWxsc293" target="_blank">Instagram</a>
+        <a href="https://www.instagram.com/sks_com_worldofficial" target="_blank">Instagram</a>
         <a href="https://www.roblox.com/users/9968367113/profile" target="_blank">Roblox</a>
         <a href="https://discord.gg/rnu26QR5" target="_blank">Discord</a>
         <a href="https://x.com/SKs_Com_World" target="_blank">Twitter (X)</a>
@@ -230,9 +218,8 @@ SKCW Web - Learn Computer Technology with Suryakiran
 </section>
 
 <footer>
-    © 2026 SKCW web | Created by Suryakiran
+    © 2026 SKCW Web | Created by Suryakiran
 </footer>
 
 </body>
-
 </html>
