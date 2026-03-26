@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SKCW Web | Learn Computer Technology</title>
+<title>SKCW Web | Learn Computer Technology with Suryakiran</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,8 +10,10 @@
 <meta name="description" content="Learn computer technology with SKCW Web by Suryakiran.">
 <meta name="robots" content="index, follow">
 
-<!-- Favicon -->
 <link rel="icon" href="favicon.ico">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -24,9 +26,10 @@
 
 /* BODY */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: url("banner.jpeg") no-repeat center center/cover fixed;
     color: white;
+    overflow-x: hidden;
 }
 
 /* DARK OVERLAY */
@@ -35,86 +38,111 @@ body::before {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(5,10,30,0.88);
+    background: linear-gradient(135deg, rgba(0,0,30,0.95), rgba(0,20,60,0.9));
     z-index: -1;
 }
 
 /* NAVBAR */
 nav {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     padding: 15px;
-    background: rgba(0,0,0,0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
 }
 
 nav a {
     color: #00eaff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     transition: 0.3s;
 }
 
 nav a:hover {
     color: white;
+    text-shadow: 0 0 10px #00eaff;
 }
 
 /* HERO */
 header {
     text-align: center;
-    padding: 50px 20px;
+    padding: 70px 20px;
+    animation: fadeIn 1.5s ease;
 }
 
 .logo {
-    width: 120px;
+    width: 130px;
     border-radius: 50%;
     border: 3px solid #00eaff;
-    box-shadow: 0 0 25px #00eaff;
+    box-shadow: 0 0 30px #00eaff;
+    animation: glow 2s infinite alternate;
 }
 
 h1 {
+    font-size: 2.5em;
     color: #00eaff;
     margin-top: 15px;
 }
 
 .subtitle {
     color: #ccc;
-    margin-top: 5px;
 }
 
 /* BUTTON */
 .btn {
     display: inline-block;
     margin-top: 20px;
-    padding: 12px 30px;
+    padding: 14px 35px;
     background: linear-gradient(45deg,#00eaff,#0077ff);
     color: black;
-    border-radius: 30px;
+    border-radius: 40px;
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
 }
 
 .btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 15px #00eaff;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00eaff;
 }
 
 /* SECTIONS */
 .section {
-    margin: 30px;
-    padding: 30px;
-    background: rgba(10,20,60,0.7);
-    border-radius: 18px;
+    margin: 40px 20px;
+    padding: 35px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 25px rgba(0,234,255,0.15);
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(0,234,255,0.3);
+
+    box-shadow:
+        0 0 15px rgba(0,234,255,0.2),
+        0 0 40px rgba(0,234,255,0.1);
+
+    transition: 0.4s;
 }
 
-/* 🔥 SPECIAL AI SECTION */
+/* HOVER EFFECT */
+.section:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow:
+        0 0 25px rgba(0,234,255,0.5),
+        0 0 60px rgba(0,234,255,0.2);
+}
+
+/* AI SECTION SPECIAL */
 .ai-section {
     border: 2px solid #00eaff;
-    box-shadow: 0 0 25px #00eaff;
+    box-shadow:
+        0 0 25px #00eaff,
+        0 0 60px rgba(0,234,255,0.5);
 }
 
 /* TITLES */
@@ -126,9 +154,9 @@ h1 {
 /* ABOUT IMAGE */
 .about img {
     width: 180px;
-    border-radius: 12px;
+    border-radius: 15px;
     border: 3px solid #00eaff;
-    margin-top: 10px;
+    box-shadow: 0 0 20px #00eaff;
 }
 
 /* AUDIO */
@@ -141,9 +169,9 @@ audio {
 .social a {
     display: inline-block;
     margin: 8px;
-    padding: 10px 18px;
-    border: 2px solid #00eaff;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid #00eaff;
     color: #00eaff;
     text-decoration: none;
     transition: 0.3s;
@@ -152,14 +180,25 @@ audio {
 .social a:hover {
     background: #00eaff;
     color: black;
+    box-shadow: 0 0 20px #00eaff;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     color: #aaa;
-    margin-top: 20px;
+}
+
+/* ANIMATIONS */
+@keyframes glow {
+    from { box-shadow: 0 0 10px #00eaff; }
+    to { box-shadow: 0 0 30px #00eaff; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 </style>
@@ -178,64 +217,47 @@ footer {
 <header>
 <img src="logo.jpeg" alt="SKCW Web Logo" class="logo">
 <h1>SKCW Web</h1>
-<p class="subtitle">Learn Computer Technology Like a Professional 🚀</p>
+<p class="subtitle">Learn Computer Technology Like a Pro 🚀</p>
 
 <a class="btn" href="https://youtube.com/@sks_com_worldofficial" target="_blank">
 Subscribe Now
 </a>
 </header>
 
-<!-- 🔥 AI SECTION (PROFESSIONAL LOOK RESTORED) -->
+<!-- AI -->
 <section class="section ai-section">
 <h2>🤖 AI Assistant</h2>
-<p>
-Have a question? Use our intelligent AI assistant to get help with
-computer technology, coding, and learning resources instantly.
-</p>
-
-<a class="btn" href="chatbot.html">Open AI Assistant</a>
+<p>Get instant answers and explore technology smarter.</p>
+<a class="btn" href="chatbot.html">Launch AI</a>
 </section>
 
 <!-- ABOUT -->
 <section class="section about">
 <h2>About Me</h2>
-
 <img src="me.jpeg" alt="Photo of Suryakiran">
-
 <p><strong>Suryakiran</strong></p>
-<p>I create content to make computer technology simple and powerful.</p>
+<p>Making technology simple, powerful, and accessible.</p>
 </section>
 
 <!-- WELCOME -->
 <section class="section">
 <h2>Welcome</h2>
-
-<p>
-Welcome to SKCW Web — your ultimate destination to learn computer technology.
-</p>
+<p>Welcome to SKCW Web — your ultimate learning hub.</p>
 
 <audio controls>
 <source src="intro.mpeg" type="audio/mpeg">
-Your browser does not support audio.
 </audio>
 </section>
 
 <!-- POSTS -->
 <section class="section">
 <h2>Explore Content</h2>
-<p>Discover posts, updates, and learning content.</p>
-
 <a class="btn" href="Posts.html">View Posts</a>
 </section>
 
 <!-- FEEDBACK -->
 <section class="section">
-<h2>Feedback & Suggestions</h2>
-
-<p>
-Your feedback helps us improve and deliver better content.
-</p>
-
+<h2>Feedback</h2>
 <a class="btn" href="https://forms.gle/v9jZCAqiNWzUXzZWA" target="_blank">
 Give Feedback
 </a>
@@ -243,10 +265,7 @@ Give Feedback
 
 <!-- CONTACT -->
 <section class="section">
-<h2>Get In Touch</h2>
-
-<p>For collaboration or questions.</p>
-
+<h2>Contact</h2>
 <a class="btn" href="mailto:sks.com.world@gmail.com">
 Contact Me
 </a>
@@ -255,20 +274,17 @@ Contact Me
 <!-- SOCIAL -->
 <section class="section">
 <h2>Follow Me</h2>
-
 <div class="social">
-<a href="https://www.instagram.com/sks_com_worldofficial" target="_blank">Instagram</a>
-<a href="https://discord.gg/rnu26QR5" target="_blank">Discord</a>
-<a href="https://x.com/SKs_Com_World" target="_blank">Twitter</a>
-<a href="https://whatsapp.com/channel/0029VbBjAlv4yltWkOW5XY3i" target="_blank">WhatsApp</a>
-<a href="https://www.roblox.com/users/9968367113/profile" target="_blank">Roblox</a>
+<a href="https://www.instagram.com/sks_com_worldofficial">Instagram</a>
+<a href="https://discord.gg/rnu26QR5">Discord</a>
+<a href="https://x.com/SKs_Com_World">Twitter</a>
+<a href="https://whatsapp.com/channel/0029VbBjAlv4yltWkOW5XY3i">WhatsApp</a>
+<a href="https://www.roblox.com/users/9968367113/profile">Roblox</a>
 </div>
-
 </section>
 
-<!-- FOOTER -->
 <footer>
-© 2026 SKCW Web | AI Powered Learning 🚀
+© 2026 SKCW Web | Ultra Professional Edition 🚀
 </footer>
 
 </body>
