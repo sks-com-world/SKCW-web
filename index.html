@@ -51,6 +51,7 @@ z-index:-1;
 
 /* 🔥 PERFECT NAV FIX (ONLY CHANGE) */
 /* 🔥 FINAL UNIFORM NAVBAR */
+/* 🔥 UNIVERSAL NAVBAR (USE IN ALL PAGES) */
 nav{
 position:sticky;
 top:0;
@@ -68,11 +69,13 @@ backdrop-filter:blur(15px);
 border-bottom:2px solid #00eaff;
 z-index:1000;
 
+/* IMPORTANT */
 flex-wrap:nowrap;
 overflow-x:auto;
 white-space:nowrap;
 }
 
+/* LINKS */
 nav a{
 color:#00eaff;
 text-decoration:none;
@@ -86,13 +89,17 @@ display:inline-block;
 border:none;
 outline:none;
 white-space:nowrap;
+
+transition:0.3s;
 }
 
+/* 🔥 HOVER EFFECT */
 nav a:hover{
 color:white;
 text-shadow:0 0 10px #00eaff;
 }
 
+/* 🔥 REMOVE ALL DEFAULT LINES */
 nav a:focus,
 nav a:active{
 outline:none;
