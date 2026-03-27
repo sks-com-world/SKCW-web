@@ -11,6 +11,35 @@
 
 <style>
 
+/* NAVBAR (ADDED ONLY THIS) */
+nav{
+position:sticky;
+top:0;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+padding:12px;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(15px);
+border-bottom:2px solid #00eaff;
+z-index:1000;
+}
+
+nav a{
+color:#00eaff;
+text-decoration:none;
+font-weight:600;
+padding:6px 10px;
+font-size:14px;
+white-space:nowrap;
+}
+
+nav a:hover{
+color:white;
+text-shadow:0 0 10px #00eaff;
+}
+
 /* GLOBAL */
 body {
     margin: 0;
@@ -135,6 +164,14 @@ footer {
 
 <body>
 
+<!-- NAVBAR -->
+<nav>
+<a href="index.html">Home</a>
+<a href="Posts.html">Posts</a>
+<a href="chatbot.html">AI Assistant</a>
+<a href="help.html">Help</a>
+</nav>
+
 <h1 style="display:none;">SKCW Posts - Daily Updates and Videos</h1>
 
 <header>
@@ -144,7 +181,6 @@ footer {
 
 <div class="container">
 
-<!-- 📌 PINNED POST -->
 <section class="post-section pinned">
     <div style="color:gold; font-size:14px;">📌 Featured</div>
 
@@ -158,7 +194,6 @@ footer {
     <a href="index.html" class="btn">Visit Main Website</a>
 </section>
 
-<!-- NEW VIDEO -->
 <section class="post-section">
     <h2>🎬 A New Video</h2>
     <div class="post-date">24 February 2026</div>
@@ -169,7 +204,6 @@ footer {
         style="aspect-ratio:16/9;" allowfullscreen></iframe>
 </section>
 
-<!-- SHORT -->
 <section class="post-section">
     <h2>🔥 Most Viewed Non-AI Short</h2>
     <div class="post-date">17 February 2026</div>
@@ -180,7 +214,6 @@ footer {
         style="aspect-ratio:9/16;"></iframe>
 </section>
 
-<!-- VIDEO -->
 <section class="post-section">
     <h2>📈 Most Viewed Video</h2>
     <div class="post-date">16 February 2026</div>
@@ -191,7 +224,6 @@ footer {
         style="aspect-ratio:16/9;"></iframe>
 </section>
 
-<!-- INCIDENT -->
 <section class="post-section">
     <h2>⚠️ My Incident</h2>
     <div class="post-date">12 February 2026</div>
@@ -199,11 +231,10 @@ footer {
     <p>Click below to watch what happened 👇</p>
 
     <a href="https://youtube.com/shorts/2aq2iHPBe_A?si=AX1JsZCWYTr9BmUg" target="_blank">
-        <img src="incident.png" class="post-img">
+        <img src="incident.png" class="post-img" alt="Incident video thumbnail">
     </a>
 </section>
 
-<!-- TEXT -->
 <section class="post-section">
     <h2>📚 Why No Videos?</h2>
     <div class="post-date">11 February 2026</div>
@@ -213,7 +244,6 @@ footer {
     </p>
 </section>
 
-<!-- FIRST POST -->
 <section class="post-section">
     <h2>🎉 My First Post</h2>
     <div class="post-date">10 February 2026</div>
