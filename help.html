@@ -10,7 +10,7 @@
 
 <style>
 
-/* SAME STYLE AS INDEX */
+/* 🔥 EXACT SAME STYLE (NO CHANGE) */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -29,7 +29,6 @@ background:linear-gradient(135deg, rgba(0,0,30,0.95), rgba(0,20,60,0.9));
 z-index:-1;
 }
 
-/* NAV (UNIFORM PERFECT) */
 nav{
 position:sticky;
 top:0;
@@ -58,14 +57,12 @@ color:white;
 text-shadow:0 0 10px #00eaff;
 }
 
-/* CONTAINER */
 .container{
 max-width:900px;
 margin:auto;
 padding:20px;
 }
 
-/* SEARCH */
 .search-box{
 width:100%;
 padding:14px;
@@ -74,7 +71,6 @@ border:none;
 margin-bottom:15px;
 }
 
-/* SUGGESTIONS */
 .suggestions{
 background:#111;
 border-radius:10px;
@@ -94,7 +90,6 @@ background:#00eaff;
 color:black;
 }
 
-/* CARD */
 .card{
 background:rgba(255,255,255,0.05);
 margin:10px 0;
@@ -113,7 +108,6 @@ color:#00eaff;
 font-size:16px;
 }
 
-/* ANSWER */
 .answer{
 display:none;
 margin-top:10px;
@@ -124,7 +118,6 @@ color:#ccc;
 display:block;
 }
 
-/* NO RESULT */
 .no-result{
 display:none;
 text-align:center;
@@ -142,7 +135,6 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* HEADER */
 header{
 text-align:center;
 padding:40px 10px;
@@ -157,7 +149,6 @@ color:#00eaff;
 
 <body>
 
-<!-- NAV -->
 <nav>
 <a href="index.html">Home</a>
 <a href="Posts.html">Posts</a>
@@ -167,23 +158,22 @@ color:#00eaff;
 
 <header>
 <h1>📘 Help Center</h1>
-<p style="color:#bbb;">Search any computer-related question</p>
+<p style="color:#bbb;">Basic → Advanced Computer Knowledge</p>
 </header>
 
 <div class="container">
 
-<input type="text" id="search" class="search-box" placeholder="Search questions..." onkeyup="searchFunc()">
+<input type="text" id="search" class="search-box" placeholder="Search anything..." onkeyup="searchFunc()">
 
 <div id="suggestions" class="suggestions"></div>
 
 <div id="faq"></div>
 
-<!-- NO RESULT -->
 <div class="no-result" id="noResult">
 <h3>No results found</h3>
 
 <p style="color:#bbb;font-size:14px;">
-Try searching something else or use these options:
+Try another question or use these:
 </p>
 
 <a href="chatbot.html" class="btn">Ask AI Assistant</a>
@@ -194,32 +184,42 @@ Try searching something else or use these options:
 
 <script>
 
-/* MASSIVE QUESTION DATABASE */
-let questions = [];
-
-/* AUTO GENERATE 1000+ QUESTIONS */
-let baseQ = [
-"what is html","what is css","what is javascript",
-"what is computer","what is internet",
-"how to create website","what is programming",
-"what is ai","what is cpu","what is ram"
+/* 🔥 LEVEL SYSTEM */
+const levels = [
+"basic","beginner","intermediate",
+"advanced","expert","complex"
 ];
 
-for(let i=0;i<1000;i++){
-let q = baseQ[i % baseQ.length] + " " + (i+1);
-questions.push({
-q: q,
-a: "Answer for: " + q + ". This is a simple explanation to help you understand the concept clearly."
-});
+const topics = [
+"html","css","javascript","computer",
+"internet","ai","cpu","ram",
+"programming","database","network",
+"cyber security","cloud computing"
+];
+
+/* 🔥 GENERATE 1 LAKH QUESTIONS (SMART) */
+let questions = [];
+
+for(let i=0;i<100000;i++){
+let level = levels[i % levels.length];
+let topic = topics[i % topics.length];
+
+let q = `What is ${topic} (${level} level) - ${i+1}?`;
+
+let a = `${topic.toUpperCase()} explanation (${level}):
+This is a ${level} level explanation of ${topic}. It helps users understand concepts from basic to advanced in a structured way.`;
+
+questions.push({q,a});
 }
 
-/* RENDER QUESTIONS */
+/* ⚡ PERFORMANCE LIMIT (VERY IMPORTANT) */
 function render(list){
 let faq = document.getElementById("faq");
 faq.innerHTML="";
 
-list.forEach(item=>{
-let div = document.createElement("div");
+/* ONLY LOAD 50 AT A TIME */
+list.slice(0,50).forEach(item=>{
+let div=document.createElement("div");
 div.className="card";
 div.innerHTML=`<h3>${item.q}</h3><div class="answer">${item.a}</div>`;
 div.onclick=()=>div.classList.toggle("active");
@@ -229,8 +229,8 @@ faq.appendChild(div);
 
 /* SEARCH */
 function searchFunc(){
-let input = document.getElementById("search").value.toLowerCase();
-let suggestionsBox = document.getElementById("suggestions");
+let input=document.getElementById("search").value.toLowerCase();
+let suggestionsBox=document.getElementById("suggestions");
 
 if(!input){
 render(questions);
@@ -239,28 +239,27 @@ document.getElementById("noResult").style.display="none";
 return;
 }
 
-/* FILTER */
-let filtered = questions.filter(q=>q.q.includes(input));
+let filtered = questions.filter(q=>q.q.toLowerCase().includes(input));
 
-/* SHOW RESULTS */
 render(filtered);
 
-/* NO RESULT */
 document.getElementById("noResult").style.display = filtered.length ? "none" : "block";
 
 /* AUTO SUGGEST */
 suggestionsBox.innerHTML="";
-if(filtered.length > 0){
+if(filtered.length>0){
 suggestionsBox.style.display="block";
 
 filtered.slice(0,5).forEach(item=>{
 let div=document.createElement("div");
 div.innerText=item.q;
+
 div.onclick=()=>{
 document.getElementById("search").value=item.q;
 suggestionsBox.style.display="none";
 searchFunc();
 };
+
 suggestionsBox.appendChild(div);
 });
 
