@@ -50,28 +50,50 @@ z-index:-1;
 }
 
 /* 🔥 PERFECT NAV FIX (ONLY CHANGE) */
+/* 🔥 FINAL UNIFORM NAVBAR */
 nav{
 position:sticky;
 top:0;
 display:flex;
 justify-content:center;
 align-items:center;
-gap:25px;
-padding:12px 10px;
-background:rgba(0,0,0,0.8);
+gap:30px;
+
+padding:14px 10px;
+
+background:rgba(0,0,0,0.85);
 backdrop-filter:blur(15px);
+
 border-bottom:2px solid #00eaff;
+
 z-index:1000;
 
-/* 🔥 IMPORTANT FIX */
-flex-wrap:nowrap;        /* prevents items going down */
-overflow-x:auto;         /* scroll instead of breaking */
-white-space:nowrap;      /* keep in one line */
+/* IMPORTANT FIXES */
+flex-wrap:nowrap;        /* ❌ no going down */
+overflow-x:auto;         /* ✅ scroll if small screen */
+white-space:nowrap;
 }
 
-/* HIDE SCROLLBAR (clean look) */
-nav::-webkit-scrollbar{
-display:none;
+/* LINKS */
+nav a{
+color:#00eaff;
+text-decoration:none;
+font-weight:600;
+font-size:15px;
+
+padding:6px 12px;
+
+display:inline-block;
+
+/* REMOVE ALL LINES */
+border:none;
+outline:none;
+}
+
+/* HOVER */
+nav a:hover{
+color:white;
+text-shadow:0 0 10px #00eaff;
 }
 
 nav a{
