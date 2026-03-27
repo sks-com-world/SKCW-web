@@ -2,162 +2,82 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Help Center | SKCW Web</title>
-
+<title>Help Center</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-/* BODY */
 body{
-font-family:'Segoe UI', sans-serif;
-background:url("banner.jpeg") center/cover fixed;
+margin:0;
+font-family:Arial;
+background:#0a0f1f;
 color:white;
-overflow-x:hidden;
 }
 
-/* OVERLAY */
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background:linear-gradient(135deg, rgba(0,0,30,0.95), rgba(0,20,60,0.9));
-z-index:-1;
-}
-
-/* NAVBAR */
 nav{
-position:sticky;
-top:0;
 display:flex;
 justify-content:center;
-flex-wrap:wrap;
-gap:15px;
-padding:12px;
-background:rgba(0,0,0,0.85);
-backdrop-filter:blur(15px);
+gap:20px;
+padding:10px;
+background:#000;
 border-bottom:2px solid #00eaff;
-z-index:1000;
 }
 
 nav a{
 color:#00eaff;
 text-decoration:none;
-font-weight:600;
-padding:6px 10px;
 font-size:14px;
-white-space:nowrap;
 }
 
-nav a:hover{
-color:white;
-text-shadow:0 0 10px #00eaff;
-}
-
-/* HEADER */
-header{
-text-align:center;
-padding:40px 20px;
-}
-
-header h1{
-color:#00eaff;
-font-size:2.5em;
-text-shadow:0 0 15px #00eaff;
-}
-
-header p{
-color:#bbb;
-margin-top:10px;
-}
-
-/* SEARCH */
-.search-box{
-max-width:500px;
-margin:20px auto;
-display:flex;
-}
-
-.search-box input{
-flex:1;
-padding:12px;
-border:none;
-border-radius:10px 0 0 10px;
-}
-
-.search-box button{
-padding:12px 20px;
-border:none;
-background:#00eaff;
-border-radius:0 10px 10px 0;
-cursor:pointer;
-font-weight:bold;
-}
-
-/* FAQ CONTAINER */
 .container{
 max-width:900px;
 margin:auto;
 padding:20px;
 }
 
-/* QUESTION CARD */
+input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-bottom:20px;
+}
+
+/* CARD */
 .card{
-margin:15px 0;
-padding:20px;
-border-radius:15px;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border:1px solid rgba(0,234,255,0.3);
-box-shadow:0 0 20px rgba(0,234,255,0.2);
+background:#151c3d;
+padding:15px;
+margin:8px 0;
+border-radius:10px;
 cursor:pointer;
-transition:0.3s;
 }
 
-.card:hover{
-transform:scale(1.02);
-box-shadow:0 0 30px rgba(0,234,255,0.5);
-}
-
-/* TITLE */
-.card h3{
-color:#00eaff;
-}
-
-/* ANSWER */
 .answer{
 display:none;
-margin-top:10px;
 color:#ccc;
-line-height:1.6;
+margin-top:8px;
 }
 
-/* SHOW */
 .card.active .answer{
 display:block;
 }
 
 /* NO RESULT */
-#noResult{
-text-align:center;
-color:#ff5555;
-margin-top:20px;
+.no-result{
 display:none;
+text-align:center;
+margin-top:20px;
 }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-color:#aaa;
+.btn{
+display:inline-block;
+margin:10px;
+padding:10px 20px;
+background:#00eaff;
+color:black;
+text-decoration:none;
+border-radius:20px;
+font-weight:bold;
 }
 
 </style>
@@ -165,7 +85,6 @@ color:#aaa;
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
 <a href="index.html">Home</a>
 <a href="Posts.html">Posts</a>
@@ -173,220 +92,59 @@ color:#aaa;
 <a href="help.html">Help</a>
 </nav>
 
-<header>
-<h1>💡 Help Center</h1>
-<p>Find answers to common computer and technology questions</p>
-</header>
+<div class="container">
 
-<!-- SEARCH -->
-<div class="search-box">
-<input type="text" id="search" placeholder="Search question...">
-<button onclick="searchQ()">Search</button>
+<input type="text" id="search" placeholder="Search questions..." onkeyup="searchFunc()">
+
+<div id="faq">
+
+<!-- 🔥 MANY QUESTIONS (EXTENDED) -->
+
+<div class="card"><h3>What is HTML?</h3><div class="answer">HTML builds web pages.</div></div>
+<div class="card"><h3>What is CSS?</h3><div class="answer">CSS styles websites.</div></div>
+<div class="card"><h3>What is JavaScript?</h3><div class="answer">JS adds interactivity.</div></div>
+
+<div class="card"><h3>What is computer?</h3><div class="answer">Electronic device that processes data.</div></div>
+<div class="card"><h3>What is RAM?</h3><div class="answer">Temporary memory.</div></div>
+<div class="card"><h3>What is CPU?</h3><div class="answer">Brain of computer.</div></div>
+
+<div class="card"><h3>What is internet?</h3><div class="answer">Global network.</div></div>
+<div class="card"><h3>What is website?</h3><div class="answer">Collection of pages.</div></div>
+<div class="card"><h3>What is browser?</h3><div class="answer">Software to open sites.</div></div>
+
+<!-- 🔥 DUPLICATED BLOCK FOR MASS QUESTIONS -->
+<!-- COPY BELOW BLOCK MANY TIMES FOR 1000+ -->
+
+<div class="card"><h3>What is software?</h3><div class="answer">Programs running on system.</div></div>
+<div class="card"><h3>What is hardware?</h3><div class="answer">Physical parts.</div></div>
+<div class="card"><h3>What is AI?</h3><div class="answer">Machine intelligence.</div></div>
+<div class="card"><h3>What is coding?</h3><div class="answer">Writing programs.</div></div>
+<div class="card"><h3>What is database?</h3><div class="answer">Stores data.</div></div>
+<div class="card"><h3>What is cloud?</h3><div class="answer">Online storage.</div></div>
+
 </div>
 
-<div id="noResult">❌ No results found</div>
+<!-- NO RESULT -->
+<div class="no-result" id="noResult">
+<h3>No results found</h3>
+<p>You can still continue with:</p>
 
-<!-- FAQ -->
-<div class="container" id="faq">
-<!-- SAME CODE ABOVE (NO CHANGE) -->
+<a class="btn" href="chatbot.html">Ask AI Assistant</a>
+<a class="btn" href="mailto:sks.com.world@gmail.com">Contact Me</a>
 
-<div class="container" id="faq">
-
-<!-- BASIC QUESTIONS -->
-<div class="card">
-<h3>What is HTML?</h3>
-<div class="answer">HTML structures web pages.</div>
-</div>
-
-<div class="card">
-<h3>What is CSS?</h3>
-<div class="answer">CSS styles websites.</div>
-</div>
-
-<div class="card">
-<h3>What is JavaScript?</h3>
-<div class="answer">JavaScript adds interactivity.</div>
-</div>
-
-<div class="card">
-<h3>What is a computer?</h3>
-<div class="answer">A computer processes data.</div>
-</div>
-
-<div class="card">
-<h3>What is software?</h3>
-<div class="answer">Programs that run on a computer.</div>
-</div>
-
-<div class="card">
-<h3>What is hardware?</h3>
-<div class="answer">Physical parts of a computer.</div>
-</div>
-
-<!-- INTERMEDIATE -->
-<div class="card">
-<h3>What is an operating system?</h3>
-<div class="answer">System software that manages hardware and apps.</div>
-</div>
-
-<div class="card">
-<h3>What is RAM?</h3>
-<div class="answer">Temporary memory used while running programs.</div>
-</div>
-
-<div class="card">
-<h3>What is a CPU?</h3>
-<div class="answer">The brain of the computer.</div>
-</div>
-
-<div class="card">
-<h3>What is a browser?</h3>
-<div class="answer">Software to access websites.</div>
-</div>
-
-<div class="card">
-<h3>What is internet?</h3>
-<div class="answer">A global network connecting computers.</div>
-</div>
-
-<div class="card">
-<h3>What is a website?</h3>
-<div class="answer">A collection of web pages.</div>
-</div>
-
-<!-- ADVANCED -->
-<div class="card">
-<h3>What is responsive design?</h3>
-<div class="answer">Design that adapts to all devices.</div>
-</div>
-
-<div class="card">
-<h3>What is SEO?</h3>
-<div class="answer">Improving site visibility in search engines.</div>
-</div>
-
-<div class="card">
-<h3>What is API?</h3>
-<div class="answer">A way for software to communicate.</div>
-</div>
-
-<div class="card">
-<h3>What is database?</h3>
-<div class="answer">System to store and manage data.</div>
-</div>
-
-<div class="card">
-<h3>What is cloud computing?</h3>
-<div class="answer">Using online servers instead of local systems.</div>
-</div>
-
-<div class="card">
-<h3>What is cybersecurity?</h3>
-<div class="answer">Protecting systems from attacks.</div>
-</div>
-
-<!-- RANDOM / REAL USER QUESTIONS -->
-<div class="card">
-<h3>Why is my website not loading?</h3>
-<div class="answer">Check internet, hosting, or errors.</div>
-</div>
-
-<div class="card">
-<h3>Why is my site not indexed?</h3>
-<div class="answer">Submit sitemap and wait for crawling.</div>
-</div>
-
-<div class="card">
-<h3>How to make website faster?</h3>
-<div class="answer">Optimize images and reduce code.</div>
-</div>
-
-<div class="card">
-<h3>How to create a website?</h3>
-<div class="answer">Use HTML, CSS, and hosting.</div>
-</div>
-
-<div class="card">
-<h3>How to learn coding?</h3>
-<div class="answer">Practice regularly and build projects.</div>
-</div>
-
-<!-- 🔥 MASS MULTIPLIER BLOCK -->
-<!-- COPY THIS BLOCK 100 TIMES FOR 1000+ QUESTIONS -->
-
-<div class="card">
-<h3>What is file system?</h3>
-<div class="answer">Organizes files in storage.</div>
-</div>
-
-<div class="card">
-<h3>What is IP address?</h3>
-<div class="answer">Unique address for devices online.</div>
-</div>
-
-<div class="card">
-<h3>What is DNS?</h3>
-<div class="answer">Converts domain names to IP.</div>
-</div>
-
-<div class="card">
-<h3>What is hosting?</h3>
-<div class="answer">Service to store websites online.</div>
-</div>
-
-<div class="card">
-<h3>What is GitHub?</h3>
-<div class="answer">Platform to store code online.</div>
-</div>
-
-<div class="card">
-<h3>What is debugging?</h3>
-<div class="answer">Finding and fixing errors.</div>
-</div>
-
-<div class="card">
-<h3>What is frontend?</h3>
-<div class="answer">User interface of a website.</div>
-</div>
-
-<div class="card">
-<h3>What is backend?</h3>
-<div class="answer">Server-side logic.</div>
-</div>
-
-<div class="card">
-<h3>What is algorithm?</h3>
-<div class="answer">Step-by-step solution to a problem.</div>
-</div>
-
-<div class="card">
-<h3>What is programming?</h3>
-<div class="answer">Writing code to create software.</div>
 </div>
 
 </div>
-<footer>
-© 2026 SKCW Web | Help Center 🚀
-</footer>
 
 <script>
 
-/* TOGGLE */
-document.querySelectorAll(".card").forEach(card=>{
-card.addEventListener("click",()=>{
-card.classList.toggle("active");
-});
-});
-
-/* SEARCH */
-function searchQ(){
+function searchFunc(){
 let input=document.getElementById("search").value.toLowerCase();
 let cards=document.querySelectorAll(".card");
 let found=false;
 
 cards.forEach(card=>{
 let text=card.innerText.toLowerCase();
-
 if(text.includes(input)){
 card.style.display="block";
 found=true;
@@ -397,6 +155,10 @@ card.style.display="none";
 
 document.getElementById("noResult").style.display = found ? "none" : "block";
 }
+
+document.querySelectorAll(".card").forEach(card=>{
+card.onclick=()=>card.classList.toggle("active");
+});
 
 </script>
 
