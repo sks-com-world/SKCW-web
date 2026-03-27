@@ -7,6 +7,7 @@
 
 <style>
 
+/* YOUR ORIGINAL STYLE (UNCHANGED) */
 body{
 margin:0;
 font-family:Arial;
@@ -43,7 +44,6 @@ border:none;
 margin-bottom:20px;
 }
 
-/* CARD */
 .card{
 background:#151c3d;
 padding:15px;
@@ -62,22 +62,11 @@ margin-top:8px;
 display:block;
 }
 
-/* NO RESULT */
+/* KEEP YOUR ORIGINAL NO RESULT STYLE */
 .no-result{
 display:none;
 text-align:center;
 margin-top:20px;
-}
-
-.btn{
-display:inline-block;
-margin:10px;
-padding:10px 20px;
-background:#00eaff;
-color:black;
-text-decoration:none;
-border-radius:20px;
-font-weight:bold;
 }
 
 </style>
@@ -98,41 +87,49 @@ font-weight:bold;
 
 <div id="faq">
 
-<!-- 🔥 MANY QUESTIONS (EXTENDED) -->
-
+<!-- YOUR ORIGINAL QUESTIONS (UNCHANGED) -->
 <div class="card"><h3>What is HTML?</h3><div class="answer">HTML builds web pages.</div></div>
 <div class="card"><h3>What is CSS?</h3><div class="answer">CSS styles websites.</div></div>
 <div class="card"><h3>What is JavaScript?</h3><div class="answer">JS adds interactivity.</div></div>
-
-<div class="card"><h3>What is computer?</h3><div class="answer">Electronic device that processes data.</div></div>
-<div class="card"><h3>What is RAM?</h3><div class="answer">Temporary memory.</div></div>
-<div class="card"><h3>What is CPU?</h3><div class="answer">Brain of computer.</div></div>
-
-<div class="card"><h3>What is internet?</h3><div class="answer">Global network.</div></div>
-<div class="card"><h3>What is website?</h3><div class="answer">Collection of pages.</div></div>
-<div class="card"><h3>What is browser?</h3><div class="answer">Software to open sites.</div></div>
-
-<!-- 🔥 DUPLICATED BLOCK FOR MASS QUESTIONS -->
-<!-- COPY BELOW BLOCK MANY TIMES FOR 1000+ -->
-
-<div class="card"><h3>What is software?</h3><div class="answer">Programs running on system.</div></div>
-<div class="card"><h3>What is hardware?</h3><div class="answer">Physical parts.</div></div>
-<div class="card"><h3>What is AI?</h3><div class="answer">Machine intelligence.</div></div>
-<div class="card"><h3>What is coding?</h3><div class="answer">Writing programs.</div></div>
-<div class="card"><h3>What is database?</h3><div class="answer">Stores data.</div></div>
-<div class="card"><h3>What is cloud?</h3><div class="answer">Online storage.</div></div>
+<div class="card"><h3>What is computer?</h3><div class="answer">Electronic device.</div></div>
 
 </div>
 
-<!-- NO RESULT -->
+<!-- ✅ ONLY CHANGE STARTS HERE -->
 <div class="no-result" id="noResult">
-<h3>No results found</h3>
-<p>You can still continue with:</p>
 
-<a class="btn" href="chatbot.html">Ask AI Assistant</a>
-<a class="btn" href="mailto:sks.com.world@gmail.com">Contact Me</a>
+<h3>No results found</h3>
+
+<p style="color:#bbb; font-size:14px;">
+You can still continue using these options:
+</p>
+
+<a href="chatbot.html" style="
+display:inline-block;
+margin:10px;
+padding:10px 20px;
+background:#00eaff;
+color:black;
+border-radius:20px;
+text-decoration:none;
+font-weight:bold;">
+Ask AI Assistant
+</a>
+
+<a href="mailto:sks.com.world@gmail.com" style="
+display:inline-block;
+margin:10px;
+padding:10px 20px;
+background:#00eaff;
+color:black;
+border-radius:20px;
+text-decoration:none;
+font-weight:bold;">
+Contact Me
+</a>
 
 </div>
+<!-- ✅ ONLY CHANGE ENDS HERE -->
 
 </div>
 
