@@ -34,59 +34,49 @@ z-index:-1;
 nav{
 position:sticky;
 top:0;
+
 display:flex;
 justify-content:center;
 align-items:center;
-gap:30px;
 
-padding:14px 10px;
+gap:30px;
+padding:12px 10px;
 
 background:rgba(0,0,0,0.85);
 backdrop-filter:blur(15px);
 
 border-bottom:2px solid #00eaff;
-
 z-index:1000;
 
-/* IMPORTANT FIXES */
-flex-wrap:nowrap;        /* ❌ no going down */
-overflow-x:auto;         /* ✅ scroll if small screen */
+flex-wrap:nowrap;
+overflow-x:auto;
 white-space:nowrap;
 }
 
-/* LINKS */
 nav a{
 color:#00eaff;
 text-decoration:none;
 font-weight:600;
-font-size:15px;
 
-padding:6px 12px;
+font-size:14px;
+padding:6px 10px;
 
 display:inline-block;
 
-/* REMOVE ALL LINES */
 border:none;
 outline:none;
-}
-
-/* HOVER */
-nav a:hover{
-color:white;
-text-shadow:0 0 10px #00eaff;
-}
-
-nav a{
-color:#00eaff;
-text-decoration:none;
-font-weight:600;
-font-size:15px;
-padding:5px 10px;
+white-space:nowrap;
 }
 
 nav a:hover{
 color:white;
 text-shadow:0 0 10px #00eaff;
+}
+
+nav a:focus,
+nav a:active{
+outline:none;
+border:none;
 }
 
 /* CONTAINER */
