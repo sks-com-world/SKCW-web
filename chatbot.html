@@ -7,6 +7,35 @@
 
 <style>
 
+/* NAVBAR (ADDED ONLY THIS) */
+nav{
+position:sticky;
+top:0;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+padding:12px;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(15px);
+border-bottom:2px solid #00eaff;
+z-index:1000;
+}
+
+nav a{
+color:#00eaff;
+text-decoration:none;
+font-weight:600;
+padding:6px 10px;
+font-size:14px;
+white-space:nowrap;
+}
+
+nav a:hover{
+color:white;
+text-shadow:0 0 10px #00eaff;
+}
+
 /* GLOBAL */
 body {
     margin: 0;
@@ -108,6 +137,14 @@ button {
 
 <body>
 
+<!-- NAVBAR -->
+<nav>
+<a href="index.html">Home</a>
+<a href="Posts.html">Posts</a>
+<a href="chatbot.html">AI Assistant</a>
+<a href="help.html">Help</a>
+</nav>
+
 <header>
 <h2>🤖 SKCW AI Assistant</h2>
 <p style="font-size:13px;color:#aaa;">Smart Assistant</p>
@@ -124,7 +161,6 @@ button {
 
 const chat = document.getElementById("chat");
 
-/* ADD MESSAGE */
 function add(text, type) {
     let div = document.createElement("div");
     div.className = "msg " + type;
@@ -133,7 +169,6 @@ function add(text, type) {
     chat.scrollTop = chat.scrollHeight;
 }
 
-/* BOT REPLY */
 function botReply(text) {
     let div = document.createElement("div");
     div.className = "msg bot";
@@ -149,7 +184,6 @@ function botReply(text) {
     chat.scrollTop = chat.scrollHeight;
 }
 
-/* ADD LINK */
 function addLink(text, url) {
     let div = document.createElement("div");
     div.className = "msg bot";
@@ -164,7 +198,6 @@ function addLink(text, url) {
     chat.scrollTop = chat.scrollHeight;
 }
 
-/* MAIN SYSTEM */
 function send() {
 
     let inputBox = document.getElementById("input");
@@ -178,7 +211,6 @@ function send() {
 
     setTimeout(() => {
 
-        /* KNOWN ANSWERS */
         if(lower.includes("html")) {
             botReply("HTML is used to create the structure of web pages such as headings, text, images, and links.");
         }
@@ -199,7 +231,6 @@ function send() {
             botReply("A computer is an electronic device that processes data and performs tasks.");
         }
 
-        /* ALWAYS HANDLE UNKNOWN (NO REJECTION) */
         else {
 
             botReply("🤖 I’m not fully trained to answer this question yet.");
