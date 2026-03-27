@@ -11,7 +11,6 @@
 
 <link rel="icon" href="favicon.ico">
 
-<!-- SCHEMA -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -50,14 +49,15 @@ background:linear-gradient(135deg, rgba(0,0,30,0.95), rgba(0,20,60,0.9));
 z-index:-1;
 }
 
-/* ✅ NAV (UPDATED ONLY THIS PART) */
+/* ✅ NAV FIXED (RESPONSIVE + FIT SCREEN) */
 nav{
 position:sticky;
 top:0;
 display:flex;
 justify-content:center;
-gap:40px;
-padding:15px;
+flex-wrap:wrap; /* 🔥 FIX */
+gap:15px; /* smaller gap */
+padding:12px;
 background:rgba(0,0,0,0.85);
 backdrop-filter:blur(15px);
 border-bottom:2px solid #00eaff;
@@ -68,9 +68,11 @@ nav a{
 color:#00eaff;
 text-decoration:none;
 font-weight:600;
-padding:8px 12px;
+padding:6px 10px;
+font-size:14px; /* 🔥 smaller for mobile */
 position:relative;
 transition:0.3s;
+white-space:nowrap;
 }
 
 nav a:hover{
@@ -78,12 +80,11 @@ color:white;
 text-shadow:0 0 10px #00eaff;
 }
 
-/* UNDERLINE ANIMATION */
 nav a::after{
 content:"";
 position:absolute;
 left:0;
-bottom:-5px;
+bottom:-4px;
 width:0%;
 height:2px;
 background:#00eaff;
@@ -116,7 +117,6 @@ box-shadow:0 0 30px #00eaff;
 animation:glow 2s infinite alternate;
 }
 
-/* TYPING TEXT */
 .typing{
 color:#00eaff;
 font-size:2.5em;
@@ -243,7 +243,7 @@ to{box-shadow:0 0 30px #00eaff;}
 
 <body>
 
-<!-- ✅ NAV UPDATED -->
+<!-- ✅ NAV -->
 <nav>
 <a href="index.html" class="active">Home</a>
 <a href="Posts.html">Posts</a>
@@ -294,6 +294,7 @@ Learn step by step with clear explanations.
 <p style="color:#bbb;font-size:14px;">
 Explore tutorials, guides, and useful content.
 </p>
+
 <audio controls>
 <source src="intro.mpeg" type="audio/mpeg">
 </audio>
@@ -309,14 +310,14 @@ New content added regularly.
 <a class="btn" href="Posts.html">View Posts</a>
 </section>
 
-<!-- ✅ NEW HELP SECTION (ADDED ONLY THIS) -->
+<!-- ✅ HELP SECTION -->
 <section class="section">
 <h2>Help Center</h2>
-<p>Find answers to frequently asked computer questions.</p>
+<p>Find answers to frequently asked questions easily.</p>
 <p style="color:#bbb;font-size:14px;">
-Search and explore solutions instantly.
+Use our help page to solve your doubts quickly.
 </p>
-<a class="btn" href="help.html">Open Help Center</a>
+<a class="btn" href="help.html">Open Help</a>
 </section>
 
 <!-- FEEDBACK -->
