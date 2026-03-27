@@ -2,44 +2,64 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SKCW Help | Ultimate FAQ</title>
+<title>Help Center | SKCW Web</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ultimate help center for computer technology.">
-
-<link rel="icon" href="favicon.ico">
 
 <style>
 
-/* BODY */
-body{
+/* RESET */
+*{
 margin:0;
-font-family:Arial, sans-serif;
-background:url("banner.jpeg") no-repeat center/cover fixed;
-color:white;
+padding:0;
+box-sizing:border-box;
 }
 
+/* BODY */
+body{
+font-family:'Segoe UI', sans-serif;
+background:url("banner.jpeg") center/cover fixed;
+color:white;
+overflow-x:hidden;
+}
+
+/* OVERLAY */
 body::before{
 content:"";
 position:fixed;
 width:100%;
 height:100%;
-background:rgba(0,0,30,0.92);
+background:linear-gradient(135deg, rgba(0,0,30,0.95), rgba(0,20,60,0.9));
 z-index:-1;
 }
 
-/* NAV */
+/* NAVBAR */
 nav{
-text-align:center;
-padding:15px;
-background:rgba(0,0,0,0.8);
+position:sticky;
+top:0;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+padding:12px;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(15px);
+border-bottom:2px solid #00eaff;
+z-index:1000;
 }
 
 nav a{
 color:#00eaff;
-margin:10px;
 text-decoration:none;
-font-weight:bold;
+font-weight:600;
+padding:6px 10px;
+font-size:14px;
+white-space:nowrap;
+}
+
+nav a:hover{
+color:white;
+text-shadow:0 0 10px #00eaff;
 }
 
 /* HEADER */
@@ -50,94 +70,94 @@ padding:40px 20px;
 
 header h1{
 color:#00eaff;
+font-size:2.5em;
+text-shadow:0 0 15px #00eaff;
+}
+
+header p{
+color:#bbb;
+margin-top:10px;
 }
 
 /* SEARCH */
 .search-box{
-text-align:center;
-margin:20px;
+max-width:500px;
+margin:20px auto;
+display:flex;
 }
 
 .search-box input{
-width:85%;
-max-width:450px;
-padding:14px;
-border-radius:30px;
+flex:1;
+padding:12px;
 border:none;
-outline:none;
-font-size:16px;
+border-radius:10px 0 0 10px;
 }
 
-/* SECTION */
-.section{
-margin:30px 20px;
-padding:30px;
-border-radius:20px;
-background:rgba(255,255,255,0.05);
-box-shadow:0 0 25px rgba(0,234,255,0.2);
-}
-
-/* TITLE */
-.section h2{
-color:#00eaff;
-}
-
-/* FAQ BOX */
-.faq{
-margin-top:15px;
-border-radius:12px;
-background:rgba(0,0,0,0.5);
-border-left:4px solid #00eaff;
+.search-box button{
+padding:12px 20px;
+border:none;
+background:#00eaff;
+border-radius:0 10px 10px 0;
 cursor:pointer;
-transition:0.3s;
-overflow:hidden;
-}
-
-.faq:hover{
-box-shadow:0 0 15px #00eaff;
-}
-
-/* QUESTION */
-.question{
-padding:15px;
 font-weight:bold;
 }
 
-/* ANSWER (HIDDEN) */
+/* FAQ CONTAINER */
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+/* QUESTION CARD */
+.card{
+margin:15px 0;
+padding:20px;
+border-radius:15px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(0,234,255,0.3);
+box-shadow:0 0 20px rgba(0,234,255,0.2);
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.02);
+box-shadow:0 0 30px rgba(0,234,255,0.5);
+}
+
+/* TITLE */
+.card h3{
+color:#00eaff;
+}
+
+/* ANSWER */
 .answer{
-padding:15px;
 display:none;
-border-top:1px solid rgba(255,255,255,0.2);
-color:#ddd;
+margin-top:10px;
+color:#ccc;
+line-height:1.6;
 }
 
 /* SHOW */
-.faq.active .answer{
+.card.active .answer{
 display:block;
 }
 
 /* NO RESULT */
 #noResult{
 text-align:center;
-color:#ff4c4c;
+color:#ff5555;
 margin-top:20px;
 display:none;
 }
 
-/* BUTTON */
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 30px;
-background:linear-gradient(45deg,#00eaff,#0077ff);
-color:black;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.btn:hover{
-box-shadow:0 0 20px #00eaff;
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+color:#aaa;
 }
 
 </style>
@@ -145,124 +165,101 @@ box-shadow:0 0 20px #00eaff;
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav>
 <a href="index.html">Home</a>
 <a href="Posts.html">Posts</a>
-<a href="chatbot.html">AI</a>
+<a href="chatbot.html">AI Assistant</a>
 <a href="help.html">Help</a>
 </nav>
 
 <header>
-<h1>Help & FAQ Center</h1>
-<p>Find answers instantly and professionally</p>
+<h1>💡 Help Center</h1>
+<p>Find answers to common computer and technology questions</p>
 </header>
 
 <!-- SEARCH -->
 <div class="search-box">
-<input type="text" id="searchInput" placeholder="Search any question..." onkeyup="searchFAQ()">
+<input type="text" id="search" placeholder="Search question...">
+<button onclick="searchQ()">Search</button>
 </div>
 
-<!-- FAQ SECTION -->
-<div class="section" id="faqSection">
+<div id="noResult">❌ No results found</div>
 
-<h2>Frequently Asked Questions</h2>
+<!-- FAQ -->
+<div class="container" id="faq">
 
-<div class="faq">
-<div class="question">What is a computer?</div>
-<div class="answer">A computer is an electronic device that processes data and performs tasks.</div>
+<!-- QUESTION 1 -->
+<div class="card">
+<h3>What is HTML?</h3>
+<div class="answer">
+HTML is used to structure web pages using elements like headings, images, and links.
+</div>
 </div>
 
-<div class="faq">
-<div class="question">What is RAM?</div>
-<div class="answer">RAM is temporary memory used for running programs quickly.</div>
+<!-- QUESTION 2 -->
+<div class="card">
+<h3>What is CSS?</h3>
+<div class="answer">
+CSS styles your website with colors, layouts, and animations.
+</div>
 </div>
 
-<div class="faq">
-<div class="question">What is CPU?</div>
-<div class="answer">CPU is the brain of the computer that executes instructions.</div>
+<!-- QUESTION 3 -->
+<div class="card">
+<h3>What is JavaScript?</h3>
+<div class="answer">
+JavaScript adds interactivity like buttons, animations, and dynamic content.
+</div>
 </div>
 
-<div class="faq">
-<div class="question">What is an operating system?</div>
-<div class="answer">It manages hardware and software like Windows or Linux.</div>
+<!-- QUESTION 4 -->
+<div class="card">
+<h3>What is a computer?</h3>
+<div class="answer">
+A computer is an electronic device that processes data and performs tasks.
+</div>
 </div>
 
-<div class="faq">
-<div class="question">What is HTML?</div>
-<div class="answer">HTML is used to create webpages.</div>
+<!-- QUESTION 5 -->
+<div class="card">
+<h3>What is AI?</h3>
+<div class="answer">
+Artificial Intelligence enables machines to simulate human thinking and learning.
+</div>
 </div>
 
-<div class="faq">
-<div class="question">What is CSS?</div>
-<div class="answer">CSS is used to style webpages.</div>
-</div>
-
-<div class="faq">
-<div class="question">What is JavaScript?</div>
-<div class="answer">JavaScript adds functionality to websites.</div>
-</div>
-
-<div class="faq">
-<div class="question">What is a browser?</div>
-<div class="answer">A browser is used to open websites like Chrome or Firefox.</div>
-</div>
-
-<div class="faq">
-<div class="question">What is internet?</div>
-<div class="answer">Internet is a global network connecting millions of devices.</div>
-</div>
-
-<div class="faq">
-<div class="question">What is a website?</div>
-<div class="answer">A website is a collection of webpages accessible online.</div>
-</div>
+<!-- ADD MORE (YOU CAN COPY THIS BLOCK TO ADD 100s) -->
 
 </div>
 
-<div id="noResult">No results found ❌</div>
+<footer>
+© 2026 SKCW Web | Help Center 🚀
+</footer>
 
-<!-- MORE HELP SECTION -->
-<div class="section">
-<h2>Need More Help?</h2>
-
-<p>If you cannot find your answer, you can:</p>
-
-<p style="color:#bbb;">
-Ask through AI assistant or contact directly for support.
-</p>
-
-<a class="btn" href="chatbot.html">Ask AI Assistant</a>
-<br>
-<a class="btn" href="mailto:sks.com.world@gmail.com">Contact Me</a>
-
-</div>
-
-<!-- SCRIPT -->
 <script>
 
-// OPEN / CLOSE FAQ
-document.querySelectorAll(".faq").forEach(faq=>{
-faq.addEventListener("click",()=>{
-faq.classList.toggle("active");
+/* TOGGLE */
+document.querySelectorAll(".card").forEach(card=>{
+card.addEventListener("click",()=>{
+card.classList.toggle("active");
 });
 });
 
-// SEARCH
-function searchFAQ(){
-let input = document.getElementById("searchInput").value.toLowerCase();
-let faqs = document.querySelectorAll(".faq");
-let found = false;
+/* SEARCH */
+function searchQ(){
+let input=document.getElementById("search").value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+let found=false;
 
-faqs.forEach(faq=>{
-let text = faq.innerText.toLowerCase();
+cards.forEach(card=>{
+let text=card.innerText.toLowerCase();
 
 if(text.includes(input)){
-faq.style.display="block";
-faq.parentNode.prepend(faq);
-found = true;
+card.style.display="block";
+found=true;
 }else{
-faq.style.display="none";
+card.style.display="none";
 }
 });
 
