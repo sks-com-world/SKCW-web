@@ -49,19 +49,29 @@ background:linear-gradient(135deg, rgba(0,0,30,0.95), rgba(0,20,60,0.9));
 z-index:-1;
 }
 
-/* 🔥 NAV FIXED (ONLY CHANGE) */
+/* 🔥 PERFECT NAV FIX (ONLY CHANGE) */
 nav{
 position:sticky;
 top:0;
 display:flex;
 justify-content:center;
-flex-wrap:wrap;
+align-items:center;
 gap:25px;
-padding:12px;
+padding:12px 10px;
 background:rgba(0,0,0,0.8);
 backdrop-filter:blur(15px);
 border-bottom:2px solid #00eaff;
 z-index:1000;
+
+/* 🔥 IMPORTANT FIX */
+flex-wrap:nowrap;        /* prevents items going down */
+overflow-x:auto;         /* scroll instead of breaking */
+white-space:nowrap;      /* keep in one line */
+}
+
+/* HIDE SCROLLBAR (clean look) */
+nav::-webkit-scrollbar{
+display:none;
 }
 
 nav a{
@@ -71,8 +81,9 @@ font-weight:600;
 font-size:15px;
 padding:5px 10px;
 display:inline-block;
-border:none; /* 🔥 REMOVE ANY LINE */
+border:none;
 outline:none;
+white-space:nowrap; /* prevents breaking */
 }
 
 nav a:hover{
@@ -80,7 +91,6 @@ color:white;
 text-shadow:0 0 10px #00eaff;
 }
 
-/* REMOVE ANY DEFAULT UNDERLINE OR LINE */
 nav a:focus,
 nav a:active{
 outline:none;
@@ -243,7 +253,7 @@ to{box-shadow:0 0 30px #00eaff;}
 <a href="help.html">Help</a>
 </nav>
 
-<!-- (REST OF YOUR CODE EXACTLY SAME — NOT CHANGED) -->
+<!-- EVERYTHING BELOW SAME -->
 
 <header>
 <img src="logo.jpeg" alt="SKCW Web Logo" class="logo">
