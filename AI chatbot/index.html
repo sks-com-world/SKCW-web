@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SKCW AI Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* NAVBAR (ADDED ONLY THIS) */
+/* 🔥 FINAL UNIFORM NAVBAR */
+/* 🔥 UNIVERSAL NAVBAR (USE IN ALL PAGES) */
+nav{
+position:sticky;
+top:0;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+gap:30px;
+padding:12px 10px;
+
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(15px);
+
+border-bottom:2px solid #00eaff;
+z-index:1000;
+
+/* IMPORTANT */
+flex-wrap:nowrap;
+overflow-x:auto;
+white-space:nowrap;
+}
+
+/* LINKS */
+nav a{
+color:#00eaff;
+text-decoration:none;
+font-weight:600;
+
+font-size:14px;
+padding:6px 10px;
+
+display:inline-block;
+
+border:none;
+outline:none;
+white-space:nowrap;
+
+transition:0.3s;
+}
+
+/* 🔥 HOVER EFFECT */
+nav a:hover{
+color:white;
+text-shadow:0 0 10px #00eaff;
+}
+
+/* 🔥 REMOVE ALL DEFAULT LINES */
+nav a:focus,
+nav a:active{
+outline:none;
+border:none;
+}
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url("banner.jpeg") center/cover fixed;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,40,0.9);
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 15px;
+}
+
+header h2 {
+    color: #00eaff;
+    margin: 0;
+}
+
+/* CHAT AREA */
+.chat {
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
+    height: 75vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* MESSAGE */
+.msg {
+    padding: 12px 16px;
+    border-radius: 15px;
+    margin: 10px 0;
+    max-width: 75%;
+    line-height: 1.5;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.user {
+    background: linear-gradient(45deg, #0077ff, #00c6ff);
+    margin-left: auto;
+}
+
+.bot {
+    background: rgba(255,255,255,0.1);
+}
+
+/* LINKS */
+.msg a {
+    color: #00eaff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* INPUT */
+.input-box {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    background: #111;
+    padding: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    margin-left: 10px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #00eaff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<a href="index.html">Home</a>
+<a href="Posts.html">Posts</a>
+<a href="chatbot.html">AI Assistant</a>
+<a href="help.html">Help</a>
+</nav>
+
+<header>
+<h2>🤖 SKCW AI Assistant</h2>
+<p style="font-size:13px;color:#aaa;">Smart Assistant</p>
+</header>
+
+<div class="chat" id="chat"></div>
+
+<div class="input-box">
+<input id="input" placeholder="Ask anything..." onkeydown="if(event.key==='Enter') send()">
+<button onclick="send()">Send</button>
+</div>
+
+<script>
+
+const chat = document.getElementById("chat");
+
+function add(text, type) {
+    let div = document.createElement("div");
+    div.className = "msg " + type;
+    div.innerText = text;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+function botReply(text) {
+    let div = document.createElement("div");
+    div.className = "msg bot";
+    chat.appendChild(div);
+
+    let i = 0;
+    let interval = setInterval(() => {
+        div.innerText += text[i];
+        i++;
+        if(i >= text.length) clearInterval(interval);
+    }, 12);
+
+    chat.scrollTop = chat.scrollHeight;
+}
+
+function addLink(text, url) {
+    let div = document.createElement("div");
+    div.className = "msg bot";
+
+    let a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.innerText = text;
+
+    div.appendChild(a);
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+function send() {
+
+    let inputBox = document.getElementById("input");
+    let q = inputBox.value.trim();
+    let lower = q.toLowerCase();
+
+    if(!q) return;
+
+    add(q, "user");
+    inputBox.value = "";
+
+    setTimeout(() => {
+
+        if(lower.includes("html")) {
+            botReply("HTML is used to create the structure of web pages such as headings, text, images, and links.");
+        }
+
+        else if(lower.includes("css")) {
+            botReply("CSS is used to style websites including layout, colors, and responsiveness.");
+        }
+
+        else if(lower.includes("javascript") || lower.includes("js")) {
+            botReply("JavaScript makes websites interactive with dynamic features.");
+        }
+
+        else if(lower.includes("ai")) {
+            botReply("Artificial Intelligence enables machines to simulate human thinking and learning.");
+        }
+
+        else if(lower.includes("computer")) {
+            botReply("A computer is an electronic device that processes data and performs tasks.");
+        }
+
+        else {
+
+            botReply("🤖 I’m not fully trained to answer this question yet.");
+
+            setTimeout(() => {
+                botReply("However, you can still find accurate information using the options below:");
+
+                setTimeout(() => {
+
+                    addLink("🔍 Search on Google",
+                    "https://www.google.com/search?q=" + encodeURIComponent(q));
+
+                    addLink("🤖 Ask on ChatGPT",
+                    "https://chat.openai.com/?q=" + encodeURIComponent(q));
+
+                    setTimeout(() => {
+                        botReply("📌 Note: The results will be provided by external platforms like Google or ChatGPT.");
+                    }, 800);
+
+                }, 800);
+
+            }, 800);
+        }
+
+    }, 400);
+}
+
+</script>
+
+</body>
+</html>
